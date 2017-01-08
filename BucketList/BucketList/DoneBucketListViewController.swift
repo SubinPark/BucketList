@@ -18,6 +18,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		self.doneBucketTableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
 	}
 
 	override func didReceiveMemoryWarning() {
