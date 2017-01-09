@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E716547B1E20D1740040185E /* BucketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71654791E20D1740040185E /* BucketTableViewCell.swift */; };
 		E716547C1E20D1740040185E /* BucketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E716547A1E20D1740040185E /* BucketTableViewCell.xib */; };
+		E716547E1E22EB0A0040185E /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E716547D1E22EB0A0040185E /* Bucket.swift */; };
 		E71A9C301E1A3C3500D5BED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71A9C2F1E1A3C3500D5BED4 /* AppDelegate.swift */; };
 		E71A9C321E1A3C3500D5BED4 /* DoneBucketListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71A9C311E1A3C3500D5BED4 /* DoneBucketListViewController.swift */; };
 		E71A9C351E1A3C3500D5BED4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71A9C331E1A3C3500D5BED4 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		E71654791E20D1740040185E /* BucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTableViewCell.swift; sourceTree = "<group>"; };
 		E716547A1E20D1740040185E /* BucketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BucketTableViewCell.xib; sourceTree = "<group>"; };
+		E716547D1E22EB0A0040185E /* Bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bucket.swift; sourceTree = "<group>"; };
 		E71A9C2C1E1A3C3500D5BED4 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E71A9C2F1E1A3C3500D5BED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E71A9C311E1A3C3500D5BED4 /* DoneBucketListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneBucketListViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				E71A9C361E1A3C3500D5BED4 /* Assets.xcassets */,
 				E71A9C381E1A3C3500D5BED4 /* LaunchScreen.storyboard */,
 				E71A9C3B1E1A3C3500D5BED4 /* Info.plist */,
+				E716547D1E22EB0A0040185E /* Bucket.swift */,
 			);
 			path = BucketList;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E716547B1E20D1740040185E /* BucketTableViewCell.swift in Sources */,
+				E716547E1E22EB0A0040185E /* Bucket.swift in Sources */,
 				E71A9C321E1A3C3500D5BED4 /* DoneBucketListViewController.swift in Sources */,
 				E71A9C301E1A3C3500D5BED4 /* AppDelegate.swift in Sources */,
 			);
