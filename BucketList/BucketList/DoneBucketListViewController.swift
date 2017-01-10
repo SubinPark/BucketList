@@ -9,7 +9,7 @@
 import UIKit
 
 class DoneBucketListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-	var doneBuckets: [String] = ["Pottery", "Ballet", "Reading books"] //String for now but should be a bucket object that contains image, title and etc
+	var doneBuckets: [Bucket] = []
 	
 	@IBOutlet weak var doneBucketTableView: UITableView!
 
@@ -19,6 +19,14 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.doneBucketTableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
+		
+		temporaryDataSetup()
+	}
+	
+	func temporaryDataSetup() {
+		doneBuckets.append(Bucket.init(title: "Pottery", color: .blue))
+		doneBuckets.append(Bucket.init(title: "Ballet", color: .red))
+		doneBuckets.append(Bucket.init(title: "Read a book", color: .green))
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -34,8 +42,8 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
-		cell.label.text = doneBuckets[indexPath.row]
-		//cell.backgroundImage.backgroundColor =
+		cell.label.text = doneBuckets[indexPath.row].bucketTitle
+		cell.backgroundImage.backgroundColor = doneBuckets[indexPath.row].bucketColor
 		return cell
 	}
 	
