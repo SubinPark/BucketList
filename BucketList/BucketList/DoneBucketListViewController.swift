@@ -19,7 +19,6 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.doneBucketTableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
-		
 		temporaryDataSetup()
 	}
 	
@@ -43,13 +42,12 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
 		cell.label.text = doneBuckets[indexPath.row].bucketTitle
-		cell.backgroundImage.backgroundColor = doneBuckets[indexPath.row].bucketColor
 		return cell
 	}
 	
 	// MARK: UITableViewDelegate
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return CGFloat.init(100)
+		return CGFloat.init(200)
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
