@@ -20,6 +20,11 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
 		temporaryDataSetup()
+		
+		self.navigationItem.title = "Done"
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(DoneBucketListViewController.addBucket))
+
+		doneBucketTableView.backgroundColor = UIColor(colorLiteralRed: 242 / 255.0, green: 242 / 255.0, blue: 246 / 255.0, alpha: 1)
 	}
 	
 	func temporaryDataSetup() {
@@ -52,6 +57,14 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+	}
+	
+	// MARK:
+	
+	func addBucket() {
+		//
+		doneBuckets.append(Bucket.init(title: "", color: .blue))
+		doneBucketTableView.reloadData()
 	}
 }
 
