@@ -18,8 +18,13 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
 		bucketName.delegate = self
+		bucketName.text = "What do you want to accomplish?"
+		bucketName.textColor = UIColor.lightGray
+		
+		bucketDescription.delegate = self
+		bucketDescription.text = "Let's get specific."
+		bucketDescription.textColor = UIColor.lightGray
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +34,34 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
     
 	@IBAction func addButtonDidClicked(_ sender: Any) {
 		bucketListDelegate?.dismiss(animated: true, completion: nil)
+	}
+	
+	func textViewDidBeginEditing(_ textView: UITextView) {
+		if textView.textColor == UIColor.lightGray {
+			switch textView {
+			case bucketName:
+				bucketName.text = nil
+				bucketName.textColor = UIColor.black
+			case bucketDescription:
+				bucketDescription.text = nil
+				bucketDescription.textColor = UIColor.black
+			default: break
+			}
+		}
+	}
+	
+	func textViewDidEndEditing(_ textView: UITextView) {
+		if textView.text.isEmpty {
+			switch textView {
+			case bucketName:
+				bucketName.text = "What do you want to accomplish?"
+				bucketName.textColor = UIColor.lightGray
+			case bucketDescription:
+				bucketDescription.text = "Let's get specific."
+				bucketDescription.textColor = UIColor.lightGray
+			default: break
+			}
+		}
 	}
 	
     /*
