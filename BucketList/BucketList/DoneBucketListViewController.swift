@@ -19,7 +19,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.doneBucketTableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
-		temporaryDataSetup()
+		//temporaryDataSetup()
 		
 		self.navigationItem.title = "Done"
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(DoneBucketListViewController.addBucket))
@@ -62,9 +62,13 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	// MARK:
 	
 	func addBucket() {
-		//
+		/*
 		doneBuckets.append(Bucket.init(title: "", color: .blue))
-		doneBucketTableView.reloadData()
+		doneBucketTableView.reloadData() */
+		
+		let controller = AddBucketViewController()
+		controller.bucketListDelegate = self
+		self.navigationController?.present(controller, animated: true, completion: nil)
 	}
 }
 
