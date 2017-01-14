@@ -33,6 +33,8 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
     }
     
 	@IBAction func addButtonDidClicked(_ sender: Any) {
+		let listController = bucketListDelegate as? DoneBucketListViewController
+		listController?.doneBuckets.append(Bucket(title: bucketName.text, detail: bucketDescription.text))
 		bucketListDelegate?.dismiss(animated: true, completion: nil)
 	}
 	

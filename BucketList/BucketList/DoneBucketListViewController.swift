@@ -27,10 +27,8 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		doneBucketTableView.backgroundColor = UIColor(colorLiteralRed: 242 / 255.0, green: 242 / 255.0, blue: 246 / 255.0, alpha: 1)
 	}
 	
-	func temporaryDataSetup() {
-		doneBuckets.append(Bucket.init(title: "Pottery", color: .blue))
-		doneBuckets.append(Bucket.init(title: "Ballet", color: .red))
-		doneBuckets.append(Bucket.init(title: "Read a book", color: .green))
+	override func viewWillAppear(_ animated: Bool) {
+		doneBucketTableView.reloadData()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -62,10 +60,6 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	// MARK:
 	
 	func addBucket() {
-		/*
-		doneBuckets.append(Bucket.init(title: "", color: .blue))
-		doneBucketTableView.reloadData() */
-		
 		let controller = AddBucketViewController()
 		controller.bucketListDelegate = self
 		self.navigationController?.present(controller, animated: true, completion: nil)

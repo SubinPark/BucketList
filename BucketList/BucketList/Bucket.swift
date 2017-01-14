@@ -10,42 +10,10 @@ import UIKit
 
 class Bucket {
 	var bucketTitle: String?
-	var bucketColor: UIColor?
+	var bucketDetail: String?
 	
-	init(title: String?, color: BucketColor) {
+	init(title: String?, detail: String?) {
 		bucketTitle = title
-		bucketColor = color.rawValue
+		bucketDetail = detail
 	}
 }
-
-enum BucketColor {
-	case red
-	case blue
-	case green
-}
-
-extension BucketColor: RawRepresentable {
-	typealias RawValue = UIColor
-	
-	init?(rawValue: BucketColor.RawValue) {
-		switch rawValue {
-		case UIColor.red:
-			self = .red
-		case UIColor.blue:
-			self = .blue
-		case UIColor.green:
-			self = .green
-		default:
-			return nil
-		}
-	}
-	
-	var rawValue: RawValue {
-		switch self {
-		case .red: return UIColor.red
-		case .blue: return UIColor.blue
-		case .green: return UIColor.green
-		}
-	}
-}
-
