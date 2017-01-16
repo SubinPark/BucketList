@@ -20,6 +20,8 @@
 		E7845FF31E276D8F0064E499 /* NewBucketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */; };
 		E795010A1E282DFA005AB2FA /* AddBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79501081E282DFA005AB2FA /* AddBucketViewController.swift */; };
 		E795010B1E282DFB005AB2FA /* AddBucketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79501091E282DFA005AB2FA /* AddBucketViewController.xib */; };
+		E79501101E2BE4D8005AB2FA /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E795010E1E2BE4D8005AB2FA /* DescriptionTableViewCell.swift */; };
+		E79501111E2BE4D8005AB2FA /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E795010F1E2BE4D8005AB2FA /* DescriptionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBucketTableViewCell.xib; sourceTree = "<group>"; };
 		E79501081E282DFA005AB2FA /* AddBucketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBucketViewController.swift; sourceTree = "<group>"; };
 		E79501091E282DFA005AB2FA /* AddBucketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBucketViewController.xib; sourceTree = "<group>"; };
+		E795010E1E2BE4D8005AB2FA /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		E795010F1E2BE4D8005AB2FA /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			children = (
 				E71A9C2F1E1A3C3500D5BED4 /* AppDelegate.swift */,
 				E71A9C311E1A3C3500D5BED4 /* DoneBucketListViewController.swift */,
+				E795010E1E2BE4D8005AB2FA /* DescriptionTableViewCell.swift */,
+				E795010F1E2BE4D8005AB2FA /* DescriptionTableViewCell.xib */,
 				E79501081E282DFA005AB2FA /* AddBucketViewController.swift */,
 				E79501091E282DFA005AB2FA /* AddBucketViewController.xib */,
 				E71654791E20D1740040185E /* BucketTableViewCell.swift */,
@@ -205,6 +211,7 @@
 				E795010B1E282DFB005AB2FA /* AddBucketViewController.xib in Resources */,
 				E71A9C371E1A3C3500D5BED4 /* Assets.xcassets in Resources */,
 				E7845FF31E276D8F0064E499 /* NewBucketTableViewCell.xib in Resources */,
+				E79501111E2BE4D8005AB2FA /* DescriptionTableViewCell.xib in Resources */,
 				E71A9C351E1A3C3500D5BED4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +235,7 @@
 				E716547E1E22EB0A0040185E /* Bucket.swift in Sources */,
 				E71A9C321E1A3C3500D5BED4 /* DoneBucketListViewController.swift in Sources */,
 				E795010A1E282DFA005AB2FA /* AddBucketViewController.swift in Sources */,
+				E79501101E2BE4D8005AB2FA /* DescriptionTableViewCell.swift in Sources */,
 				E71A9C301E1A3C3500D5BED4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
