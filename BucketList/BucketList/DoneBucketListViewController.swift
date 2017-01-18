@@ -24,7 +24,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.navigationItem.title = "Done"
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(DoneBucketListViewController.addBucket))
 
-		doneBucketTableView.backgroundColor = UIColor(colorLiteralRed: 242 / 255.0, green: 242 / 255.0, blue: 246 / 255.0, alpha: 1)
+		doneBucketTableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +56,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		let controller = BucketDetailViewController()
+		controller.navigationController?.title = doneBuckets[indexPath.row].bucketTitle
 		self.navigationController?.pushViewController(controller, animated: true)
 	}
 	
