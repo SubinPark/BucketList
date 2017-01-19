@@ -9,6 +9,7 @@
 import UIKit
 
 class AddBucketViewController: UIViewController, UITextViewDelegate {
+	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var bucketName: UITextView!
 	@IBOutlet weak var bucketDescription: UITextView!
 	@IBOutlet weak var addButton: UIButton!
@@ -17,7 +18,12 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		UISetup()
+		hideKeyboardWhenTappedAround()
+    }
+	
+	func UISetup() {
 		bucketName.delegate = self
 		bucketName.text = "What do you want to accomplish?"
 		bucketName.textColor = UIColor.lightGray
@@ -25,13 +31,13 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 		bucketDescription.delegate = self
 		bucketDescription.text = "Let's get specific."
 		bucketDescription.textColor = UIColor.lightGray
-    }
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
 	@IBAction func addButtonDidClicked(_ sender: Any) {
 		let listController = bucketListDelegate as? DoneBucketListViewController
 		listController?.doneBuckets.append(Bucket(title: bucketName.text, detail: bucketDescription.text))
@@ -39,6 +45,7 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 	}
 	
 	func textViewDidBeginEditing(_ textView: UITextView) {
+		scrollView.setContentOffset(CGPoint.init(x: 0, y: (textView.frame.origin.y - CGFloat.init(30))), animated: true)
 		if textView.textColor == UIColor.lightGray {
 			switch textView {
 			case bucketName:
@@ -53,6 +60,7 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 	}
 	
 	func textViewDidEndEditing(_ textView: UITextView) {
+		scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
 		if textView.text.isEmpty {
 			switch textView {
 			case bucketName:

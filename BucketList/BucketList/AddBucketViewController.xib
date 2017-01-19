@@ -14,6 +14,7 @@
                 <outlet property="addButton" destination="X5E-d7-A0E" id="I2a-4a-xrd"/>
                 <outlet property="bucketDescription" destination="iSP-dI-dwD" id="HXJ-Lf-dCS"/>
                 <outlet property="bucketName" destination="KRU-zs-6QT" id="bOF-WG-aej"/>
+                <outlet property="scrollView" destination="Wdx-3B-MMa" id="aLq-Cm-Bsw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +30,8 @@
                             <rect key="frame" x="16" y="219" width="343" height="305"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="305" id="pao-T5-5gZ"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="pao-T5-5gZ"/>
+                                <constraint firstAttribute="height" constant="305" id="wFZ-f6-Q8x"/>
                             </constraints>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -41,7 +43,7 @@
                                 <constraint firstAttribute="height" constant="29" id="PVD-Fm-cWq"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                            <state key="normal" title="Image Button">
+                            <state key="normal" title="Add Bucket">
                                 <color key="titleColor" red="0.2149553807" green="0.56329468439999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -59,7 +61,7 @@
                         </textView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="X5E-d7-A0E" secondAttribute="bottom" constant="71" id="548-Ge-Bdm"/>
+                        <constraint firstAttribute="bottom" secondItem="X5E-d7-A0E" secondAttribute="bottom" constant="50" id="548-Ge-Bdm"/>
                         <constraint firstItem="iSP-dI-dwD" firstAttribute="top" secondItem="KRU-zs-6QT" secondAttribute="bottom" constant="16" id="7Xs-Qu-kY6"/>
                         <constraint firstItem="X5E-d7-A0E" firstAttribute="top" secondItem="iSP-dI-dwD" secondAttribute="bottom" constant="43" id="8U5-Jd-O6a"/>
                         <constraint firstItem="KRU-zs-6QT" firstAttribute="trailing" secondItem="iSP-dI-dwD" secondAttribute="trailing" id="9Yf-Tw-QRH"/>

@@ -15,12 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7q9-qr-wWy">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7q9-qr-wWy">
                         <rect key="frame" x="15" y="15" width="345" height="184"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPq-bt-G6X">
@@ -32,6 +31,12 @@
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="7q9-qr-wWy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="6RA-wU-HVV"/>
+                    <constraint firstAttribute="trailing" secondItem="7q9-qr-wWy" secondAttribute="trailing" constant="15" id="OCk-wS-Ih2"/>
+                    <constraint firstAttribute="bottom" secondItem="7q9-qr-wWy" secondAttribute="bottom" constant="0.5" id="VsM-wd-edx"/>
+                    <constraint firstItem="7q9-qr-wWy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="owa-fg-rS8"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="cardView" destination="7q9-qr-wWy" id="xcw-AQ-qbV"/>
