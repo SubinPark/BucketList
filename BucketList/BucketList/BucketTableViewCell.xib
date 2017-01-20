@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,9 +23,8 @@
                         <rect key="frame" x="15" y="15" width="345" height="184"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPq-bt-G6X">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPq-bt-G6X">
                         <rect key="frame" x="35" y="93" width="305" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,10 +32,14 @@
                 </subviews>
                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
+                    <constraint firstItem="LPq-bt-G6X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="27" id="3Jl-ih-E46"/>
                     <constraint firstItem="7q9-qr-wWy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="6RA-wU-HVV"/>
                     <constraint firstAttribute="trailing" secondItem="7q9-qr-wWy" secondAttribute="trailing" constant="15" id="OCk-wS-Ih2"/>
                     <constraint firstAttribute="bottom" secondItem="7q9-qr-wWy" secondAttribute="bottom" constant="0.5" id="VsM-wd-edx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LPq-bt-G6X" secondAttribute="trailing" constant="27" id="XnD-LD-sTv"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="LPq-bt-G6X" secondAttribute="bottom" constant="77.5" id="ZH5-XI-Ps9"/>
                     <constraint firstItem="7q9-qr-wWy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="owa-fg-rS8"/>
+                    <constraint firstItem="LPq-bt-G6X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="85" id="rO6-Hc-FgB"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

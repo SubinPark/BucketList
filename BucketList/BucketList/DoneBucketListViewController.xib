@@ -9,30 +9,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BucketDetailViewController" customModule="BucketList" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DoneBucketListViewController" customModule="BucketList" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="Qtk-7M-UU1" id="o09-et-IxW"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="doneBucketTableView" destination="NJY-5z-yGA" id="R3B-oO-YUL"/>
+                <outlet property="view" destination="iN0-l3-epB" id="h1z-Ne-n6i"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qtk-7M-UU1">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NJY-5z-yGA">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Qtk-7M-UU1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Gmj-cL-H1d"/>
-                <constraint firstItem="Qtk-7M-UU1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RwV-d8-D0I"/>
-                <constraint firstAttribute="trailing" secondItem="Qtk-7M-UU1" secondAttribute="trailing" id="l1a-Nx-5F0"/>
-                <constraint firstAttribute="bottom" secondItem="Qtk-7M-UU1" secondAttribute="bottom" id="sgm-ff-f2a"/>
+                <constraint firstItem="NJY-5z-yGA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3yy-Bs-eIX"/>
+                <constraint firstAttribute="bottom" secondItem="NJY-5z-yGA" secondAttribute="bottom" id="Lxr-qc-JAn"/>
+                <constraint firstAttribute="trailing" secondItem="NJY-5z-yGA" secondAttribute="trailing" id="YGo-YX-Rb6"/>
+                <constraint firstItem="NJY-5z-yGA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dNt-ye-ois"/>
             </constraints>
-            <point key="canvasLocation" x="34.5" y="54.5"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>
