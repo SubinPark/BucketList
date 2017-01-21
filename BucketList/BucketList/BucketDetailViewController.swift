@@ -11,6 +11,8 @@ import UIKit
 class BucketDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	
+	var details: [Bucket] = []
+	
 	//Initializer with bucket object
 	
     override func viewDidLoad() {
@@ -21,7 +23,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		tableView.dataSource = self
 		tableView.delegate = self
 		
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(BucketDetailViewController.addDetail))
 		
 		tableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
     }
@@ -35,20 +37,24 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-		cell.title.text = "Test Detail"
-		cell.titleDescription.text = "Test description"
+		cell.titleDescription.text = details[indexPath.row].bucketDetail
 		
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return details.count
 	}
 	
 	// MARK: UITableViewDelegate
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 255
+	}
+	
+	func addDetail() {
+		details.append(Bucket.init(title: nil, detail: nil))
+		tableView.reloadData()
 	}
 	
 	
