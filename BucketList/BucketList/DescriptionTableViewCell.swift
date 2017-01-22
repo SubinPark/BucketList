@@ -14,6 +14,7 @@ class DescriptionTableViewCell: UITableViewCell {
 	@IBOutlet weak var logo: UIImageView!
 	@IBOutlet weak var title: UILabel!
 	@IBOutlet weak var titleDescription: UITextView!
+	@IBOutlet weak var saveButton: UIButton!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
