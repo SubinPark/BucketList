@@ -11,10 +11,10 @@ import UIKit
 class DescriptionTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var cardView: UIView!
-	@IBOutlet weak var logo: UIImageView!
-	@IBOutlet weak var title: UILabel!
+	@IBOutlet weak var title: UITextField!
 	@IBOutlet weak var titleDescription: UITextView!
 	@IBOutlet weak var saveButton: UIButton!
+	@IBOutlet weak var editButton: UIButton!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +23,7 @@ class DescriptionTableViewCell: UITableViewCell {
 	
 	override func layoutSubviews() {
 		cardSetup()
+		editButton.isHidden = true
 	}
 	
 	func cardSetup() {
@@ -43,5 +44,13 @@ class DescriptionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+	
+	@IBAction func saveButtonClicked(_ sender: Any) {
+		title.isUserInteractionEnabled = false
+		titleDescription.isUserInteractionEnabled = false
+		saveButton.isHidden = true
+		editButton.isHidden = false
+	}
+	
+	
 }

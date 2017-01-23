@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="254.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9XQ-gf-fg3">
@@ -39,11 +39,19 @@
                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="35"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26l-Mb-Vv7">
-                        <rect key="frame" x="275" y="204" width="85" height="50"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLZ-DV-XlN">
+                        <rect key="frame" x="292" y="216" width="56" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <state key="normal" title="Save"/>
+                        <connections>
+                            <action selector="saveButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tku-mD-vzU"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGx-AK-cDL">
+                        <rect key="frame" x="314" y="15" width="46" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Edit"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -62,7 +70,9 @@
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="cardView" destination="9XQ-gf-fg3" id="WrF-lv-yXF"/>
-                <outlet property="saveButton" destination="26l-Mb-Vv7" id="SOi-Zl-N0W"/>
+                <outlet property="editButton" destination="bGx-AK-cDL" id="O3y-XQ-GCH"/>
+                <outlet property="saveButton" destination="oLZ-DV-XlN" id="JcZ-Of-m0x"/>
+                <outlet property="title" destination="Vpf-1Z-WpL" id="tYu-Br-QU5"/>
                 <outlet property="titleDescription" destination="S7E-My-vwQ" id="37m-D0-LXO"/>
             </connections>
             <point key="canvasLocation" x="-82.5" y="-71.5"/>
