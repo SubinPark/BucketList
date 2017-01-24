@@ -54,6 +54,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func addDetail() {
 		details.append(Bucket.init(title: nil, detail: nil))
+		//details.insert(Bucket.init(title: nil, detail: nil), at: 0)
 		tableView.reloadData()
 	}
 	

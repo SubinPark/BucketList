@@ -34,7 +34,7 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What's up?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpf-1Z-WpL">
-                        <rect key="frame" x="18" y="27.5" width="342" height="36"/>
+                        <rect key="frame" x="18" y="27" width="342" height="36"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="35"/>
                         <textInputTraits key="textInputTraits"/>
@@ -48,10 +48,13 @@
                             <action selector="saveButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tku-mD-vzU"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGx-AK-cDL">
-                        <rect key="frame" x="314" y="15" width="46" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrq-bh-5GX">
+                        <rect key="frame" x="327" y="27" width="21" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Edit"/>
+                        <state key="normal" title="Button" image="editIcon.png"/>
+                        <connections>
+                            <action selector="editButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xJB-nZ-mft"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -70,7 +73,7 @@
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="cardView" destination="9XQ-gf-fg3" id="WrF-lv-yXF"/>
-                <outlet property="editButton" destination="bGx-AK-cDL" id="O3y-XQ-GCH"/>
+                <outlet property="editButton" destination="hrq-bh-5GX" id="J5Z-uQ-E1O"/>
                 <outlet property="saveButton" destination="oLZ-DV-XlN" id="JcZ-Of-m0x"/>
                 <outlet property="title" destination="Vpf-1Z-WpL" id="tYu-Br-QU5"/>
                 <outlet property="titleDescription" destination="S7E-My-vwQ" id="37m-D0-LXO"/>
@@ -78,4 +81,7 @@
             <point key="canvasLocation" x="-82.5" y="-71.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="editIcon.png" width="60" height="60"/>
+    </resources>
 </document>

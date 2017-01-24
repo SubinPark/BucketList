@@ -52,5 +52,11 @@ class DescriptionTableViewCell: UITableViewCell {
 		editButton.isHidden = false
 	}
 	
+	@IBAction func editButtonClicked(_ sender: Any) {
+		title.isUserInteractionEnabled = true
+		titleDescription.isUserInteractionEnabled = true
+		editButton.isHidden = true
+		saveButton.isHidden = false
+	}
 	
 }

@@ -24,6 +24,7 @@
 		E79501111E2BE4D8005AB2FA /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E795010F1E2BE4D8005AB2FA /* DescriptionTableViewCell.xib */; };
 		E79501141E2E0426005AB2FA /* BucketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79501121E2E0426005AB2FA /* BucketDetailViewController.swift */; };
 		E79501151E2E0426005AB2FA /* BucketDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79501131E2E0426005AB2FA /* BucketDetailViewController.xib */; };
+		E79EBE2D1E35F16800302E8B /* editIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E79EBE2C1E35F16800302E8B /* editIcon.png */; };
 		E7C1BFBA1E30504000FB8EFE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C1BFB91E30504000FB8EFE /* UIViewControllerExtension.swift */; };
 		E7C1BFBE1E31A6C000FB8EFE /* DoneBucketListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7C1BFBD1E31A6C000FB8EFE /* DoneBucketListViewController.xib */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		E795010F1E2BE4D8005AB2FA /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		E79501121E2E0426005AB2FA /* BucketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketDetailViewController.swift; sourceTree = "<group>"; };
 		E79501131E2E0426005AB2FA /* BucketDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BucketDetailViewController.xib; sourceTree = "<group>"; };
+		E79EBE2C1E35F16800302E8B /* editIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editIcon.png; sourceTree = "<group>"; };
 		E7C1BFB91E30504000FB8EFE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		E7C1BFBD1E31A6C000FB8EFE /* DoneBucketListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoneBucketListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 		E71A9C2E1E1A3C3500D5BED4 /* BucketList */ = {
 			isa = PBXGroup;
 			children = (
+				E79EBE231E35EF3900302E8B /* Assets */,
 				E79501181E2E049A005AB2FA /* DataObject */,
 				E7C1BFB61E304FA100FB8EFE /* Extensions */,
 				E79501161E2E045C005AB2FA /* TableViewCell */,
@@ -157,6 +160,14 @@
 				E716547D1E22EB0A0040185E /* Bucket.swift */,
 			);
 			name = DataObject;
+			sourceTree = "<group>";
+		};
+		E79EBE231E35EF3900302E8B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E79EBE2C1E35F16800302E8B /* editIcon.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		E7C1BFB61E304FA100FB8EFE /* Extensions */ = {
@@ -258,6 +269,7 @@
 				E79501111E2BE4D8005AB2FA /* DescriptionTableViewCell.xib in Resources */,
 				E7C1BFBE1E31A6C000FB8EFE /* DoneBucketListViewController.xib in Resources */,
 				E71A9C351E1A3C3500D5BED4 /* Main.storyboard in Resources */,
+				E79EBE2D1E35F16800302E8B /* editIcon.png in Resources */,
 				E79501151E2E0426005AB2FA /* BucketDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
