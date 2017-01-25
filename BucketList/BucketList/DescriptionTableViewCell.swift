@@ -16,15 +16,16 @@ class DescriptionTableViewCell: UITableViewCell {
 	@IBOutlet weak var saveButton: UIButton!
 	@IBOutlet weak var editButton: UIButton!
 	
+	var delegate: BucketDetailViewController?
+	var row: Int?
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-	
-	override func layoutSubviews() {
-		cardSetup()
+		
 		editButton.isHidden = true
-	}
+		cardSetup()
+    }
 	
 	func cardSetup() {
 		self.cardView.alpha = 1
@@ -50,6 +51,8 @@ class DescriptionTableViewCell: UITableViewCell {
 		titleDescription.isUserInteractionEnabled = false
 		saveButton.isHidden = true
 		editButton.isHidden = false
+		
+		self.delegate?.saveBucket(Bucket.init(title: title.text, detail: titleDescription.text), row: row!)
 	}
 	
 	@IBAction func editButtonClicked(_ sender: Any) {

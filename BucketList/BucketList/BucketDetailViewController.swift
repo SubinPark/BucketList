@@ -38,6 +38,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
 		cell.titleDescription.text = details[indexPath.row].bucketDetail
+		cell.delegate = self
+		cell.row = indexPath.row
 		
 		return cell
 	}
@@ -56,6 +58,10 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		details.append(Bucket.init(title: nil, detail: nil))
 		//details.insert(Bucket.init(title: nil, detail: nil), at: 0)
 		tableView.reloadData()
+	}
+	
+	func saveBucket(_ bucket: Bucket , row: Int) {
+		details[row] = bucket
 	}
 	
 	

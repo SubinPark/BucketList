@@ -54,9 +54,31 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell
+		
+		UIView.animate(withDuration: 0.8) {
+			cell?.center.y -= 300
+			self.navigationController?.navigationBar.barTintColor = UIColor.white
+			
+			self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+			
+			self.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
+			self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
+			
+			let attrs = [
+				NSForegroundColorAttributeName: UIColor.black,
+				//NSFontAttributeName: UIFont(name: "Georgia-Bold", size: 24)!
+			]
+			
+			self.navigationController?.navigationBar.titleTextAttributes = attrs
+		}
+		
+		/*
 		let controller = BucketDetailViewController()
 		controller.navigationController?.title = doneBuckets[indexPath.row].bucketTitle
 		self.navigationController?.pushViewController(controller, animated: true)
+		*/
 	}
 	
 	// MARK:
