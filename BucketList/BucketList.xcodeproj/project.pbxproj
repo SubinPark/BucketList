@@ -16,6 +16,7 @@
 		E71A9C371E1A3C3500D5BED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E71A9C361E1A3C3500D5BED4 /* Assets.xcassets */; };
 		E71A9C3A1E1A3C3500D5BED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71A9C381E1A3C3500D5BED4 /* LaunchScreen.storyboard */; };
 		E71A9C451E1A3C3500D5BED4 /* BucketListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71A9C441E1A3C3500D5BED4 /* BucketListTests.swift */; };
+		E73D82271E39844600F47533 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D82261E39844600F47533 /* Enums.swift */; };
 		E7845FF21E276D8F0064E499 /* NewBucketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7845FF01E276D8F0064E499 /* NewBucketTableViewCell.swift */; };
 		E7845FF31E276D8F0064E499 /* NewBucketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */; };
 		E795010A1E282DFA005AB2FA /* AddBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79501081E282DFA005AB2FA /* AddBucketViewController.swift */; };
@@ -53,6 +54,7 @@
 		E71A9C401E1A3C3500D5BED4 /* BucketListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E71A9C441E1A3C3500D5BED4 /* BucketListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTests.swift; sourceTree = "<group>"; };
 		E71A9C461E1A3C3500D5BED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E73D82261E39844600F47533 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		E7845FF01E276D8F0064E499 /* NewBucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBucketTableViewCell.swift; sourceTree = "<group>"; };
 		E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBucketTableViewCell.xib; sourceTree = "<group>"; };
 		E79501081E282DFA005AB2FA /* AddBucketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBucketViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				E71A9C361E1A3C3500D5BED4 /* Assets.xcassets */,
 				E71A9C381E1A3C3500D5BED4 /* LaunchScreen.storyboard */,
 				E71A9C3B1E1A3C3500D5BED4 /* Info.plist */,
+				E73D82261E39844600F47533 /* Enums.swift */,
 			);
 			path = BucketList;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				E7845FF21E276D8F0064E499 /* NewBucketTableViewCell.swift in Sources */,
 				E716547B1E20D1740040185E /* BucketTableViewCell.swift in Sources */,
+				E73D82271E39844600F47533 /* Enums.swift in Sources */,
 				E7C1BFBA1E30504000FB8EFE /* UIViewControllerExtension.swift in Sources */,
 				E716547E1E22EB0A0040185E /* Bucket.swift in Sources */,
 				E71A9C321E1A3C3500D5BED4 /* DoneBucketListViewController.swift in Sources */,

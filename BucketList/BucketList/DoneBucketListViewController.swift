@@ -10,6 +10,8 @@ import UIKit
 
 class DoneBucketListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	var doneBuckets: [Bucket] = []
+	var details: [Bucket] = []
+	var tableViewType: Enums.TableViewType = .DoneList
 	
 	@IBOutlet weak var doneBucketTableView: UITableView!
 
@@ -17,6 +19,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		self.doneBucketTableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
+		self.doneBucketTableView.register(UINib.init(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCell")
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
 		
@@ -24,6 +27,10 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(DoneBucketListViewController.addBucket))
 
 		doneBucketTableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
+		
+		
+		//Fake data setup
+		details.append(Bucket.init(title: "Detail", detail: "Let's!"))
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -42,9 +49,18 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
-		cell.label.text = doneBuckets[indexPath.row].bucketTitle
-		return cell
+		switch tableViewType {
+		case .DoneList:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
+			cell.label.text = doneBuckets[indexPath.row].bucketTitle
+			return cell
+		case .Detail:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
+			cell.titleDescription.text = details[indexPath.row].bucketDetail
+			cell.row = indexPath.row
+			return cell
+		}
+
 	}
 	
 	// MARK: UITableViewDelegate
@@ -61,17 +77,13 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 			cell?.center.y -= 300
 			self.navigationController?.navigationBar.barTintColor = UIColor.white
 			
-			self.navigationController?.navigationBar.barStyle = UIBarStyle.black
-			
 			self.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
 			self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
 			
-			let attrs = [
-				NSForegroundColorAttributeName: UIColor.black,
-				//NSFontAttributeName: UIFont(name: "Georgia-Bold", size: 24)!
-			]
+			self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
 			
-			self.navigationController?.navigationBar.titleTextAttributes = attrs
+			self.tableViewType = .Detail
+			tableView.reloadData()
 		}
 		
 		/*
@@ -79,6 +91,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		controller.navigationController?.title = doneBuckets[indexPath.row].bucketTitle
 		self.navigationController?.pushViewController(controller, animated: true)
 		*/
+		
 	}
 	
 	// MARK:
