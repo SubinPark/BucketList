@@ -49,17 +49,17 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		switch tableViewType {
-		case .DoneList:
+//		switch tableViewType {
+//		case .DoneList:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
 			cell.label.text = doneBuckets[indexPath.row].bucketTitle
 			return cell
-		case .Detail:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-			cell.titleDescription.text = details[indexPath.row].bucketDetail
-			cell.row = indexPath.row
-			return cell
-		}
+//		case .Detail:
+//			let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
+//			cell.titleDescription.text = details[indexPath.row].bucketDetail
+//			cell.row = indexPath.row
+//			return cell
+//		}
 
 	}
 	
@@ -82,16 +82,13 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 			
 			self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
 			
-			self.tableViewType = .Detail
-			tableView.reloadData()
+//			self.tableViewType = .Detail
+//			tableView.reloadData()
 		}
 		
-		/*
 		let controller = BucketDetailViewController()
 		controller.navigationController?.title = doneBuckets[indexPath.row].bucketTitle
 		self.navigationController?.pushViewController(controller, animated: true)
-		*/
-		
 	}
 	
 	// MARK:
