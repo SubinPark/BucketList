@@ -28,7 +28,6 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 
 		doneBucketTableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
 		
-		
 		//Fake data setup
 		details.append(Bucket.init(title: "Detail", detail: "Let's!"))
 	}
@@ -49,18 +48,9 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		switch tableViewType {
-//		case .DoneList:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
-			cell.label.text = doneBuckets[indexPath.row].bucketTitle
-			return cell
-//		case .Detail:
-//			let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-//			cell.titleDescription.text = details[indexPath.row].bucketDetail
-//			cell.row = indexPath.row
-//			return cell
-//		}
-
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
+		cell.label.text = doneBuckets[indexPath.row].bucketTitle
+		return cell
 	}
 	
 	// MARK: UITableViewDelegate
@@ -73,6 +63,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		
 		let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell
 		
+		/*
 		UIView.animate(withDuration: 0.8) {
 			cell?.center.y -= 300
 			self.navigationController?.navigationBar.barTintColor = UIColor.white
@@ -81,10 +72,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 			self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
 			
 			self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
-			
-//			self.tableViewType = .Detail
-//			tableView.reloadData()
-		}
+		} */
 		
 		let controller = BucketDetailViewController()
 		controller.navigationController?.title = doneBuckets[indexPath.row].bucketTitle
