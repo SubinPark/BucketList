@@ -23,6 +23,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
 		
+		
 		self.navigationItem.title = "Done"
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(DoneBucketListViewController.addBucket))
 
