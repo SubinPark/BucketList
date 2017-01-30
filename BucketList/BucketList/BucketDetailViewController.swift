@@ -11,9 +11,18 @@ import UIKit
 class BucketDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	
+	var detailedBucket: Bucket?
 	var details: [Bucket] = []
 	
 	//Initializer with bucket object
+	init(bucket: Bucket) {
+		super.init(nibName: "BucketDetailViewController", bundle: nil)
+		detailedBucket = bucket
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +32,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		tableView.dataSource = self
 		tableView.delegate = self
 		
+		self.navigationItem.title = detailedBucket?.bucketTitle
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(BucketDetailViewController.addDetail))
 		
 		tableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)

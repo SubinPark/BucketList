@@ -23,7 +23,6 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
 		
-		
 		self.navigationItem.title = "Done"
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(DoneBucketListViewController.addBucket))
 
@@ -75,8 +74,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 			self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
 		} */
 		
-		let controller = BucketDetailViewController()
-		controller.navigationController?.title = doneBuckets[indexPath.row].bucketTitle
+		let controller = BucketDetailViewController(bucket: doneBuckets[indexPath.row])
 		self.navigationController?.pushViewController(controller, animated: true)
 	}
 	
