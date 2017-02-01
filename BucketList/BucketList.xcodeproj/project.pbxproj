@@ -21,6 +21,7 @@
 		E73D82271E39844600F47533 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D82261E39844600F47533 /* Enums.swift */; };
 		E7845FF21E276D8F0064E499 /* NewBucketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7845FF01E276D8F0064E499 /* NewBucketTableViewCell.swift */; };
 		E7845FF31E276D8F0064E499 /* NewBucketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */; };
+		E78A7ECD1E41C796000AF53A /* BucketRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A7ECC1E41C796000AF53A /* BucketRealm.swift */; };
 		E795010A1E282DFA005AB2FA /* AddBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79501081E282DFA005AB2FA /* AddBucketViewController.swift */; };
 		E795010B1E282DFB005AB2FA /* AddBucketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79501091E282DFA005AB2FA /* AddBucketViewController.xib */; };
 		E79501101E2BE4D8005AB2FA /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E795010E1E2BE4D8005AB2FA /* DescriptionTableViewCell.swift */; };
@@ -64,6 +65,7 @@
 		E73D82261E39844600F47533 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		E7845FF01E276D8F0064E499 /* NewBucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBucketTableViewCell.swift; sourceTree = "<group>"; };
 		E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBucketTableViewCell.xib; sourceTree = "<group>"; };
+		E78A7ECC1E41C796000AF53A /* BucketRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketRealm.swift; sourceTree = "<group>"; };
 		E79501081E282DFA005AB2FA /* AddBucketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBucketViewController.swift; sourceTree = "<group>"; };
 		E79501091E282DFA005AB2FA /* AddBucketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBucketViewController.xib; sourceTree = "<group>"; };
 		E795010E1E2BE4D8005AB2FA /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +165,14 @@
 			path = BucketListTests;
 			sourceTree = "<group>";
 		};
+		E78A7ECB1E41C767000AF53A /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				E78A7ECC1E41C796000AF53A /* BucketRealm.swift */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
 		E79501161E2E045C005AB2FA /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 		E79501181E2E049A005AB2FA /* DataObject */ = {
 			isa = PBXGroup;
 			children = (
+				E78A7ECB1E41C767000AF53A /* Realm */,
 				E716547D1E22EB0A0040185E /* Bucket.swift */,
 			);
 			name = DataObject;
@@ -431,6 +442,7 @@
 				E795010A1E282DFA005AB2FA /* AddBucketViewController.swift in Sources */,
 				E79501101E2BE4D8005AB2FA /* DescriptionTableViewCell.swift in Sources */,
 				E79501141E2E0426005AB2FA /* BucketDetailViewController.swift in Sources */,
+				E78A7ECD1E41C796000AF53A /* BucketRealm.swift in Sources */,
 				E71A9C301E1A3C3500D5BED4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
