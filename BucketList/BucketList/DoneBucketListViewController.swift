@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DoneBucketListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	var doneBuckets: [Bucket] = []
 	var details: [Bucket] = []
 	var tableViewType: Enums.TableViewType = .DoneList
+	
+	let realm = try! Realm()
+	
+	var buckets: Results<BucketRealm> {
+		get {
+			return realm.objects(BucketRealm.self)
+		}
+	}
 	
 	@IBOutlet weak var doneBucketTableView: UITableView!
 
