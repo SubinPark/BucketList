@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window?.rootViewController = navigationController
 		self.window?.makeKeyAndVisible()
 		
+		let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+		print("App Path: \(dirPaths)")
+		
 		return true
 	}
 

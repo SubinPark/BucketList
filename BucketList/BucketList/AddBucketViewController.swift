@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddBucketViewController: UIViewController, UITextViewDelegate {
 	@IBOutlet weak var scrollView: UIScrollView!
@@ -40,8 +41,15 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 	
 	@IBAction func addButtonDidClicked(_ sender: Any) {
 		let listController = bucketListDelegate as? DoneBucketListViewController
-		listController?.doneBuckets.append(Bucket(title: bucketName.text, detail: bucketDescription.text))
+		//listController?.doneBuckets.append(Bucket(title: bucketName.text, detail: bucketDescription.text))
 		bucketListDelegate?.dismiss(animated: true, completion: nil)
+		
+		let bucketToAdd = BucketRealm.init(title: bucketName.text, description: bucketDescription.text)
+		
+		let realm = try! Realm()
+		try! realm.write {
+			realm.add(bucketToAdd)
+		}
 	}
 	
 	func textViewDidBeginEditing(_ textView: UITextView) {

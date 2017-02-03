@@ -53,12 +53,14 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	// MARK: UITableViewDataSource
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return doneBuckets.count
+		//return doneBuckets.count
+		return buckets.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
-		cell.label.text = doneBuckets[indexPath.row].bucketTitle
+		//cell.label.text = doneBuckets[indexPath.row].bucketTitle
+		cell.label.text = buckets[indexPath.row].bucketTitle
 		return cell
 	}
 	
@@ -72,7 +74,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		
 		let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell
 		
-		/*
+		/* Experiment: Animation when clicking the card to the navigation bar
 		UIView.animate(withDuration: 0.8) {
 			cell?.center.y -= 300
 			self.navigationController?.navigationBar.barTintColor = UIColor.white
@@ -83,8 +85,10 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 			self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
 		} */
 		
-		let controller = BucketDetailViewController(bucket: doneBuckets[indexPath.row])
-		self.navigationController?.pushViewController(controller, animated: true)
+		
+		// Commenting out until full Realm implementation
+		//let controller = BucketDetailViewController(bucket: doneBuckets[indexPath.row])
+		//self.navigationController?.pushViewController(controller, animated: true)
 	}
 	
 	// MARK:
