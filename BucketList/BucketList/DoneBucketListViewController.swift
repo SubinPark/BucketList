@@ -72,7 +72,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		
-		let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell
+		//let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell
 		
 		/* Experiment: Animation when clicking the card to the navigation bar
 		UIView.animate(withDuration: 0.8) {
@@ -87,8 +87,8 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		
 		
 		// Commenting out until full Realm implementation
-		//let controller = BucketDetailViewController(bucket: doneBuckets[indexPath.row])
-		//self.navigationController?.pushViewController(controller, animated: true)
+		let controller = BucketDetailViewController(bucket: buckets[indexPath.row])
+		self.navigationController?.pushViewController(controller, animated: true)
 	}
 	
 	// MARK:

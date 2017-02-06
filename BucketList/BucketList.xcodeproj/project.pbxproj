@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		ABE5B3D4C9CE3F4082547B9C /* Pods_BucketListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050A7EC35559954B61841ADA /* Pods_BucketListTests.framework */; };
 		B6624B9ABDE60EDC78C644A4 /* Pods_BucketList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7EDD92C48BB39664DA03EF /* Pods_BucketList.framework */; };
+		E70DE70E1E486160001F8E3E /* BucketDetailsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DE70D1E486160001F8E3E /* BucketDetailsRealm.swift */; };
 		E716547B1E20D1740040185E /* BucketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71654791E20D1740040185E /* BucketTableViewCell.swift */; };
 		E716547C1E20D1740040185E /* BucketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E716547A1E20D1740040185E /* BucketTableViewCell.xib */; };
 		E716547E1E22EB0A0040185E /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E716547D1E22EB0A0040185E /* Bucket.swift */; };
@@ -49,6 +50,7 @@
 		A2A25EB1AD136CB165BEA032 /* Pods-BucketList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.release.xcconfig"; path = "Pods/Target Support Files/Pods-BucketList/Pods-BucketList.release.xcconfig"; sourceTree = "<group>"; };
 		A65C785A1D52E21F1456B257 /* Pods-BucketListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BucketListTests/Pods-BucketListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DABFC2E6EDF6CC7E9EA86427 /* Pods-BucketList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BucketList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BucketList/Pods-BucketList.debug.xcconfig"; sourceTree = "<group>"; };
+		E70DE70D1E486160001F8E3E /* BucketDetailsRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketDetailsRealm.swift; sourceTree = "<group>"; };
 		E71654791E20D1740040185E /* BucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTableViewCell.swift; sourceTree = "<group>"; };
 		E716547A1E20D1740040185E /* BucketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BucketTableViewCell.xib; sourceTree = "<group>"; };
 		E716547D1E22EB0A0040185E /* Bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bucket.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				E78A7ECC1E41C796000AF53A /* BucketRealm.swift */,
+				E70DE70D1E486160001F8E3E /* BucketDetailsRealm.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				E716547B1E20D1740040185E /* BucketTableViewCell.swift in Sources */,
 				E73D82271E39844600F47533 /* Enums.swift in Sources */,
 				E7C1BFBA1E30504000FB8EFE /* UIViewControllerExtension.swift in Sources */,
+				E70DE70E1E486160001F8E3E /* BucketDetailsRealm.swift in Sources */,
 				E716547E1E22EB0A0040185E /* Bucket.swift in Sources */,
 				E71A9C321E1A3C3500D5BED4 /* DoneBucketListViewController.swift in Sources */,
 				E795010A1E282DFA005AB2FA /* AddBucketViewController.swift in Sources */,

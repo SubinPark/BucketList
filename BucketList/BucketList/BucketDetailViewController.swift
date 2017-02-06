@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import RealmSwift
 
 class BucketDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	
-	var detailedBucket: Bucket?
-	var details: [Bucket] = []
+	var detailedBucket: BucketRealm?
+	let realm = try! Realm()
+	var details: Results<BucketDetailsRealm> {
+		get {
+			return realm.objects(BucketDetailsRealm.self)
+		}
+	}
 	
 	//Initializer with bucket object
-	init(bucket: Bucket) {
+	init(bucket: BucketRealm) {
 		super.init(nibName: "BucketDetailViewController", bundle: nil)
 		detailedBucket = bucket
 	}
@@ -47,7 +53,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-		cell.titleDescription.text = details[indexPath.row].bucketDetail
+		cell.titleDescription.text = details[indexPath.row].detailDescription
 		cell.delegate = self
 		cell.row = indexPath.row
 		
@@ -65,13 +71,25 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	}
 	
 	func addDetail() {
-		details.append(Bucket.init(title: nil, detail: nil))
+		let detailToAdd = BucketDetailsRealm(title: "", description: "")
+		
+		//details.append(Bucket.init(title: nil, detail: nil))
 		//details.insert(Bucket.init(title: nil, detail: nil), at: 0)
+//		let realm = try! Realm()
+//		try! realm.write {
+//			realm.add(bucketToAdd)
+//		}
+		
+		let realm = try! Realm()
+		try! realm.write {
+			realm.add(detailToAdd)
+		}
+		
 		tableView.reloadData()
 	}
 	
 	func saveBucket(_ bucket: Bucket , row: Int) {
-		details[row] = bucket
+		//Find the BucketDetailRealm object and fix?!
 	}
 	
 	
