@@ -52,7 +52,7 @@ class DescriptionTableViewCell: UITableViewCell {
 		saveButton.isHidden = true
 		editButton.isHidden = false
 		
-		self.delegate?.saveBucket(Bucket.init(title: title.text, detail: titleDescription.text), row: row!)
+		self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text), row: row!)
 	}
 	
 	@IBAction func editButtonClicked(_ sender: Any) {

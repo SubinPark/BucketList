@@ -12,14 +12,10 @@ import RealmSwift
 class BucketDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
 
-	var allDetails = [Bucket]() //should be an array of Detail object - TODO: create a detail object
 	var detailedBucket: BucketRealm?
+	var allDetails = [BucketDetail]()
+	
 	let realm = try! Realm()
-	var details: Results<BucketDetailsRealm> {
-		get {
-			return realm.objects(BucketDetailsRealm.self)
-		}
-	}
 	
 	//Initializer with bucket object
 	init(bucket: BucketRealm) {
@@ -44,11 +40,10 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		
 		tableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
 		
-		
-		//Getting all realm objects to details array
+		//Transferring Realm objects to Swift objects
 		let realmDetails = realm.objects(BucketDetailsRealm.self)
 		for detail in realmDetails {
-			allDetails.append(Bucket(title: detail.detailTitle, detail: detail.detailDescription))
+			allDetails.append(BucketDetail(title: detail.detailTitle, description: detail.detailDescription))
 		}
     }
 
@@ -61,47 +56,32 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-		cell.titleDescription.text = allDetails[indexPath.row].bucketDetail
+		cell.title.text = allDetails[indexPath.row].detailTitle
+		cell.titleDescription.text = allDetails[indexPath.row].detailDescription
 		cell.delegate = self
+		cell.editButton.isHidden = false
 		cell.row = indexPath.row
 		
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return details.count
+		return allDetails.count
 	}
 	
 	// MARK: UITableViewDelegate
-	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 255
 	}
 	
 	func addDetail() {
-		allDetails.append(Bucket.init(title: nil, detail: nil))
-		
-		//let detailToAdd = BucketDetailsRealm(title: "", description: "")
-		
-		//details.append(Bucket.init(title: nil, detail: nil))
-		//details.insert(Bucket.init(title: nil, detail: nil), at: 0)
-//		let realm = try! Realm()
-//		try! realm.write {
-//			realm.add(bucketToAdd)
-//		}
-		
-//		try! realm.write {
-//			realm.add(detailToAdd)
-//		}
-//		
-		
-		
+		allDetails.append(BucketDetail(title: "", description: ""))
 		tableView.reloadData()
 	}
 	
-	func saveBucket(_ bucket: Bucket , row: Int) {
-		//Find the BucketDetailRealm object and fix?!
-		let detailToAdd = BucketDetailsRealm(title: bucket.bucketTitle ?? "", description: bucket.bucketDetail ?? "")
+	func saveBucketDetail(_ bucketDetail: BucketDetail , row: Int) {
+		//Find the BucketDetailRealm object and fix?! - TODO: Right now, when 'save' clicked on exsiting cell, it adds another one. So find the existing one on realm database and edit.
+		let detailToAdd = BucketDetailsRealm(title: bucketDetail.detailTitle ?? "", description: bucketDetail.detailDescription ?? "")
 		
 		try! realm.write {
 			realm.add(detailToAdd)
