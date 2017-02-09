@@ -9,6 +9,7 @@
 import Foundation
 
 class BucketDetail {
+	var id: String?
 	var detailTitle: String?
 	var detailDescription: String?
 	var created: NSDate?

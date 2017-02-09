@@ -9,6 +9,7 @@
 import UIKit
 
 class Bucket {
+	var id: String?
 	var bucketTitle: String?
 	var bucketDetail: String?
 	

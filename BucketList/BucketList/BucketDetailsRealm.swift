@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 final class BucketDetailsRealm: Object {
+	dynamic var id = ""
 	dynamic var detailTitle = ""
 	dynamic var detailDescription = ""
 	dynamic var created = NSDate()
@@ -18,5 +19,10 @@ final class BucketDetailsRealm: Object {
 		self.init()
 		detailTitle = title
 		detailDescription = description
+	}
+	
+	override static func primaryKey() -> String? {
+		//TODO: Return some unique key?!
+		return ""
 	}
 }

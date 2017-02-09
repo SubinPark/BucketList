@@ -60,7 +60,9 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		cell.titleDescription.text = allDetails[indexPath.row].detailDescription
 		cell.delegate = self
 		cell.editButton.isHidden = false
+		cell.saveButton.isHidden = true
 		cell.row = indexPath.row
+		cell.isNew = false
 		
 		return cell
 	}
@@ -86,6 +88,15 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		try! realm.write {
 			realm.add(detailToAdd)
 		}
+	}
+	
+	func editBucketDetail(row: Int) {
+		//TODO: Fill this method
+		let detail: BucketDetail = allDetails[row]
+		
+		/*
+		object(ofType:forPrimaryKey:)
+		*/
 	}
 	
 	

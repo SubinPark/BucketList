@@ -19,6 +19,7 @@ final class BucketList: Object {
 }
 
 final class BucketRealm: Object {
+	dynamic var id = ""
 	dynamic var bucketTitle = ""
 	dynamic var bucketDescription = ""
 	dynamic var finished = false

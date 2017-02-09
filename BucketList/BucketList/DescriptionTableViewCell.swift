@@ -18,6 +18,7 @@ class DescriptionTableViewCell: UITableViewCell {
 	
 	var delegate: BucketDetailViewController?
 	var row: Int?
+	var isNew: Bool = true
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,7 +53,11 @@ class DescriptionTableViewCell: UITableViewCell {
 		saveButton.isHidden = true
 		editButton.isHidden = false
 		
-		self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text), row: row!)
+		if (self.isNew) {
+			self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text), row: row!)
+		} else {
+			self.delegate?.editBucketDetail()
+		}
 	}
 	
 	@IBAction func editButtonClicked(_ sender: Any) {
