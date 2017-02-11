@@ -56,7 +56,7 @@ class DescriptionTableViewCell: UITableViewCell {
 		if (self.isNew) {
 			self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text), row: row!)
 		} else {
-			self.delegate?.editBucketDetail()
+			self.delegate?.editBucketDetail(row: row!)
 		}
 	}
 	

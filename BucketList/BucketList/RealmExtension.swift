@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension Realm {
-	//nextID = (int) (realm.where(dbObj.class).maximumInt("id") + 1)
-	
-	func getNextID() -> Int { //TODO
-		return 1
-	}
-}
+//extension Realm {
+//	//nextID = (int) (realm.where(dbObj.class).maximumInt("id") + 1)
+//	
+//	func getNextID() -> Int { //TODO
+//		return 1
+//	}
+//}
