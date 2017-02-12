@@ -23,6 +23,6 @@ final class BucketDetailsRealm: Object {
 	
 	override static func primaryKey() -> String? {
 		//TODO: Return some unique key?!
-		return ""
+		return "id"
 	}
 }
