@@ -23,8 +23,6 @@ class DescriptionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-		
-		editButton.isHidden = true
 		cardSetup()
     }
 	
@@ -53,11 +51,13 @@ class DescriptionTableViewCell: UITableViewCell {
 		saveButton.isHidden = true
 		editButton.isHidden = false
 		
-		if (self.isNew) {
-			self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text), row: row!)
-		} else {
-			self.delegate?.editBucketDetail(row: row!)
-		}
+		self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text), row: row!)
+		
+		
+//		if (self.isNew) {
+//		} else {
+//			self.delegate?.editBucketDetail(row: row!)
+//		}
 	}
 	
 	@IBAction func editButtonClicked(_ sender: Any) {

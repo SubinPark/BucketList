@@ -59,10 +59,9 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		cell.title.text = allDetails[indexPath.row].detailTitle
 		cell.titleDescription.text = allDetails[indexPath.row].detailDescription
 		cell.delegate = self
-		cell.editButton.isHidden = false
-		cell.saveButton.isHidden = true
+		cell.editButton.isHidden = true
+		cell.saveButton.isHidden = false
 		cell.row = indexPath.row
-		cell.isNew = false
 		
 		return cell
 	}
