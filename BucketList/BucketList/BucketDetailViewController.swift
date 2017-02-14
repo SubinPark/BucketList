@@ -59,9 +59,17 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		cell.title.text = allDetails[indexPath.row].detailTitle
 		cell.titleDescription.text = allDetails[indexPath.row].detailDescription
 		cell.delegate = self
-		cell.editButton.isHidden = true
-		cell.saveButton.isHidden = false
 		cell.row = indexPath.row
+
+		if let title = allDetails[indexPath.row].detailTitle { // Not a good logic to show or not show save and edit button :( Should have a property indicating isEditing and depending on that, show and not show.
+			if (title.characters.count > 0) {
+				cell.editButton.isHidden = false
+				cell.saveButton.isHidden = true
+			} else {
+				cell.editButton.isHidden = true
+				cell.saveButton.isHidden = false
+			}
+		}
 		
 		return cell
 	}
