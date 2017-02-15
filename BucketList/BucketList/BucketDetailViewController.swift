@@ -43,7 +43,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		//Transferring Realm objects to Swift objects
 		let realmDetails = realm.objects(BucketDetailsRealm.self)
 		for detail in realmDetails {
-			allDetails.append(BucketDetail(title: detail.detailTitle, description: detail.detailDescription))
+			allDetails.append(BucketDetail(title: detail.detailTitle, description: detail.detailDescription, isNew: false))
 		}
     }
 
@@ -56,8 +56,11 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-		cell.title.text = allDetails[indexPath.row].detailTitle
-		cell.titleDescription.text = allDetails[indexPath.row].detailDescription
+		cell.cellData = allDetails[indexPath.row]
+		cell.dataSetup()
+		
+		cell.title.isUserInteractionEnabled = false
+		cell.titleDescription.isUserInteractionEnabled = false
 		cell.delegate = self
 		cell.row = indexPath.row
 
@@ -84,7 +87,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	}
 	
 	func addDetail() {
-		allDetails.append(BucketDetail(title: "", description: ""))
+		allDetails.append(BucketDetail(title: "", description: "", isNew: true))
 		tableView.reloadData()
 	}
 	

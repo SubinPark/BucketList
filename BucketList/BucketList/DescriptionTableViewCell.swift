@@ -17,6 +17,7 @@ class DescriptionTableViewCell: UITableViewCell {
 	@IBOutlet weak var editButton: UIButton!
 	
 	var delegate: BucketDetailViewController?
+	var cellData: BucketDetail?
 	var row: Int?
 	var isNew: Bool = true
 	
@@ -38,6 +39,11 @@ class DescriptionTableViewCell: UITableViewCell {
 		self.cardView.layer.shadowPath = UIBezierPath.init(rect: self.cardView.bounds).cgPath
 		self.backgroundColor = UIColor.init(colorLiteralRed: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1)
 	}
+	
+	func dataSetup() {
+		title.text = cellData?.detailTitle
+		titleDescription.text = cellData?.detailDescription
+	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -51,7 +57,7 @@ class DescriptionTableViewCell: UITableViewCell {
 		saveButton.isHidden = true
 		editButton.isHidden = false
 		
-		self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text), row: row!)
+		self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text, isNew: false), row: row!)
 		
 		
 //		if (self.isNew) {
