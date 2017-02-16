@@ -63,15 +63,13 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		cell.titleDescription.isUserInteractionEnabled = false
 		cell.delegate = self
 		cell.row = indexPath.row
-
-		if let title = allDetails[indexPath.row].detailTitle { // Not a good logic to show or not show save and edit button :( Should have a property indicating isEditing and depending on that, show and not show.
-			if (title.characters.count > 0) {
-				cell.editButton.isHidden = false
-				cell.saveButton.isHidden = true
-			} else {
-				cell.editButton.isHidden = true
-				cell.saveButton.isHidden = false
-			}
+		
+		if (cell.cellData.detailIsNew) {
+			cell.editButton.isHidden = true
+			cell.saveButton.isHidden = false
+		} else {
+			cell.editButton.isHidden = false
+			cell.saveButton.isHidden = true
 		}
 		
 		return cell
@@ -91,16 +89,16 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		tableView.reloadData()
 	}
 	
-	func saveBucketDetail(_ bucketDetail: BucketDetail , row: Int) {
+	func saveBucketDetail(_ bucketDetail: BucketDetail) {
 		//Find the BucketDetailRealm object and fix?! - TODO: Right now, when 'save' clicked on exsiting cell, it adds another one. So find the existing one on realm database and edit.
-		let detailToAdd = BucketDetailsRealm(title: bucketDetail.detailTitle ?? "", description: bucketDetail.detailDescription ?? "")
+		let detailToAdd = BucketDetailsRealm(title: bucketDetail.detailTitle, description: bucketDetail.detailDescription)
 		
 		try! realm.write {
 			realm.add(detailToAdd)
 		}
 	}
 	
-	func editBucketDetail(row: Int) {
+	func editBucketDetail() {
 		//TODO: Fill this method
 		let detail: BucketDetail = allDetails[row]
 		

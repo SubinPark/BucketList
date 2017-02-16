@@ -17,9 +17,8 @@ class DescriptionTableViewCell: UITableViewCell {
 	@IBOutlet weak var editButton: UIButton!
 	
 	var delegate: BucketDetailViewController?
-	var cellData: BucketDetail?
+	var cellData: BucketDetail
 	var row: Int?
-	var isNew: Bool = true
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,8 +40,8 @@ class DescriptionTableViewCell: UITableViewCell {
 	}
 	
 	func dataSetup() {
-		title.text = cellData?.detailTitle
-		titleDescription.text = cellData?.detailDescription
+		title.text = cellData.detailTitle
+		titleDescription.text = cellData.detailDescription
 	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -57,13 +56,11 @@ class DescriptionTableViewCell: UITableViewCell {
 		saveButton.isHidden = true
 		editButton.isHidden = false
 		
-		self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text, description: titleDescription.text, isNew: false), row: row!)
-		
-		
-//		if (self.isNew) {
-//		} else {
-//			self.delegate?.editBucketDetail(row: row!)
-//		}
+		if (cellData.detailIsNew) {
+			self.delegate?.saveBucketDetail(BucketDetail.init(title: title.text!, description: titleDescription.text, isNew: false))
+		} else {
+			self.delegate?.editBucketDetail()
+		}
 	}
 	
 	@IBAction func editButtonClicked(_ sender: Any) {

@@ -10,12 +10,12 @@ import Foundation
 
 class BucketDetail {
 	var id: String?
-	var detailTitle: String?
-	var detailDescription: String?
-	var detailIsNew: Bool?
-	var created: NSDate?
+	var detailTitle: String
+	var detailDescription: String
+	var detailIsNew: Bool
+	var created: NSDate
 	
-	init(title: String?, description: String?, isNew: Bool?) {
+	init(title: String = "", description: String = "", isNew: Bool = true) {
 		detailTitle = title
 		detailDescription = description
 		detailIsNew = isNew
