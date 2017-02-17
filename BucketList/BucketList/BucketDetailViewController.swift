@@ -58,9 +58,6 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
 		cell.cellData = allDetails[indexPath.row]
 		cell.dataSetup()
-		
-		cell.title.isUserInteractionEnabled = false
-		cell.titleDescription.isUserInteractionEnabled = false
 		cell.delegate = self
 		cell.row = indexPath.row
 		
@@ -68,6 +65,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 			cell.editButton.isHidden = true
 			cell.saveButton.isHidden = false
 		} else {
+			cell.title.isUserInteractionEnabled = false
+			cell.titleDescription.isUserInteractionEnabled = false
 			cell.editButton.isHidden = false
 			cell.saveButton.isHidden = true
 		}
@@ -102,10 +101,16 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		// TODO: Fill this method
 		// Get the realm object that matches cellData either with id, primary key or something and modify & resave
 		
+		//Primary key (in this case detailTitle) is resetting but primary key can't be changed.
 		
-		/*
-		object(ofType:forPrimaryKey:)
-		*/
+		let bucketDetailRealm = realm.object(ofType: BucketDetailsRealm.self, forPrimaryKey: cellData.id)
+		
+		try! realm.write {
+			bucketDetailRealm?.detailTitle = cellData.detailTitle
+			bucketDetailRealm?.detailDescription = cellData.detailDescription
+		}
+		
+		//return bucketDetailRealm
 	}
 	
 	
