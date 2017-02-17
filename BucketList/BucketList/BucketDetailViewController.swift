@@ -64,7 +64,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		cell.delegate = self
 		cell.row = indexPath.row
 		
-		if (cell.cellData.detailIsNew) {
+		if let isNew = cell.cellData?.detailIsNew, isNew == true {
 			cell.editButton.isHidden = true
 			cell.saveButton.isHidden = false
 		} else {
@@ -98,9 +98,10 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		}
 	}
 	
-	func editBucketDetail() {
-		//TODO: Fill this method
-		let detail: BucketDetail = allDetails[row]
+	func editBucketDetail(cellData: BucketDetail) {
+		// TODO: Fill this method
+		// Get the realm object that matches cellData either with id, primary key or something and modify & resave
+		
 		
 		/*
 		object(ofType:forPrimaryKey:)
