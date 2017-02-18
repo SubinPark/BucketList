@@ -43,7 +43,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		//Transferring Realm objects to Swift objects
 		let realmDetails = realm.objects(BucketDetailsRealm.self)
 		for detail in realmDetails {
-			allDetails.append(BucketDetail(title: detail.detailTitle, description: detail.detailDescription, isNew: false))
+			allDetails.append(BucketDetail(id: detail.detailID, title: detail.detailTitle, description: detail.detailDescription, isNew: false))
 		}
     }
 
@@ -89,42 +89,21 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	}
 	
 	func saveBucketDetail(_ bucketDetail: BucketDetail) {
-		//Find the BucketDetailRealm object and fix?! - TODO: Right now, when 'save' clicked on exsiting cell, it adds another one. So find the existing one on realm database and edit.
-		let detailToAdd = BucketDetailsRealm(title: bucketDetail.detailTitle, description: bucketDetail.detailDescription)
+		let detailToAdd = BucketDetailsRealm(id: bucketDetail.detailID, title: bucketDetail.detailTitle, description: bucketDetail.detailDescription)
 		
 		try! realm.write {
 			realm.add(detailToAdd)
 		}
+		//TODO: Have to do something on UI (allDetails). It currently shows empty BucketDetail(title: "", description: "", isNew: true) as it added above.
 	}
 	
 	func editBucketDetail(cellData: BucketDetail) {
-		// TODO: Fill this method
-		// Get the realm object that matches cellData either with id, primary key or something and modify & resave
-		
-		//Primary key (in this case detailTitle) is resetting but primary key can't be changed.
-		
-		let bucketDetailRealm = realm.object(ofType: BucketDetailsRealm.self, forPrimaryKey: cellData.id)
+		let bucketDetailRealm = realm.object(ofType: BucketDetailsRealm.self, forPrimaryKey: cellData.detailID)
+		//TODO: It's not getting the right realm object..
 		
 		try! realm.write {
 			bucketDetailRealm?.detailTitle = cellData.detailTitle
 			bucketDetailRealm?.detailDescription = cellData.detailDescription
 		}
-		
-		//return bucketDetailRealm
 	}
-	
-	
-	
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
