@@ -23,7 +23,6 @@ final class BucketDetailsRealm: Object {
 	}
 	
 	override static func primaryKey() -> String? {
-		//TODO: Return some unique key?! This should change to id. Change id to Int as well.
 		return "detailID"
 	}
 	
