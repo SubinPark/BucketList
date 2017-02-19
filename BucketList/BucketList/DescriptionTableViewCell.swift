@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
+class DescriptionTableViewCell: UITableViewCell, UITextViewDelegate {
 
 	@IBOutlet weak var cardView: UIView!
 	@IBOutlet weak var title: UITextField!
@@ -24,7 +24,22 @@ class DescriptionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 		cardSetup()
+		titleDescription.delegate = self
+		
+		title.addTarget(self, action: Selector("titleEditingDidEnd"), for: .editingDidEnd)
     }
+	
+	func titleEditingDidEnd(sender: UITextField) {
+		if let newTitle = sender.text {
+			cellData?.detailTitle = newTitle
+		}
+	}
+	
+	func textViewDidEndEditing(_ textView: UITextView) {
+		if let description = textView.text {
+			cellData?.detailDescription = description
+		}
+	}
 	
 	func cardSetup() {
 		self.cardView.alpha = 1
