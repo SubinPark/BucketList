@@ -26,7 +26,7 @@ class DescriptionTableViewCell: UITableViewCell, UITextViewDelegate {
 		cardSetup()
 		titleDescription.delegate = self
 		
-		title.addTarget(self, action: Selector("titleEditingDidEnd"), for: .editingDidEnd)
+		title.addTarget(self, action: #selector(self.titleEditingDidEnd(sender:)), for: .editingDidEnd)
     }
 	
 	func titleEditingDidEnd(sender: UITextField) {
