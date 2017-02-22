@@ -99,7 +99,6 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func editBucketDetail(cellData: BucketDetail) {
 		let bucketDetailRealm = realm.object(ofType: BucketDetailsRealm.self, forPrimaryKey: cellData.detailID)
-		//TODO: It's not getting the right realm object.. because cellData.detailTile is not the updated one.
 		
 		try! realm.write {
 			bucketDetailRealm?.detailTitle = cellData.detailTitle
