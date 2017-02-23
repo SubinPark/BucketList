@@ -94,7 +94,6 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		try! realm.write {
 			realm.add(detailToAdd)
 		}
-		//TODO: Have to do something on UI (allDetails). It currently shows empty BucketDetail(title: "", description: "", isNew: true) as it added above.
 	}
 	
 	func editBucketDetail(cellData: BucketDetail) {
