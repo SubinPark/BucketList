@@ -41,9 +41,10 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		tableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
 		
 		//Transferring Realm objects to Swift objects
-		let realmDetails = realm.objects(BucketDetailsRealm.self)
-		for detail in realmDetails {
-			allDetails.append(BucketDetail(id: detail.detailID, title: detail.detailTitle, description: detail.detailDescription, isNew: false))
+		if let realmDetails = detailedBucket?.details {
+			for detail in realmDetails {
+				allDetails.append(BucketDetail(id: detail.detailID, title: detail.detailTitle, description: detail.detailDescription, isNew: false))
+			}
 		}
     }
 
@@ -92,7 +93,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		let detailToAdd = BucketDetailsRealm(id: bucketDetail.detailID, title: bucketDetail.detailTitle, description: bucketDetail.detailDescription)
 		
 		try! realm.write {
-			realm.add(detailToAdd)
+			detailedBucket?.details.append(detailToAdd)
 		}
 	}
 	

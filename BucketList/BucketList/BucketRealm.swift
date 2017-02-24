@@ -24,6 +24,7 @@ final class BucketRealm: Object {
 	dynamic var bucketDescription = ""
 	dynamic var finished = false
 	dynamic var created = NSDate()
+	var details = List<BucketDetailsRealm>()
 	
 	convenience init(title: String, description: String) {
 		self.init()
