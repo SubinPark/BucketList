@@ -85,13 +85,12 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 			self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
 		} */
 		
-		
 		// Commenting out until full Realm implementation
 		let controller = BucketDetailViewController(bucket: buckets[indexPath.row])
 		self.navigationController?.pushViewController(controller, animated: true)
 	}
 	
-	// MARK:
+	// MARK: Bucket Methods
 	
 	func addBucket() {
 		let controller = AddBucketViewController()
