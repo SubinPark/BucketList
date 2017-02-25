@@ -67,7 +67,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 			cell.saveButton.isHidden = false
 		} else {
 			cell.title.isUserInteractionEnabled = false
-			cell.titleDescription.isUserInteractionEnabled = false
+			cell.titleDescription.isUserInteractionEnabled = true
+			cell.titleDescription.isEditable = false
 			cell.editButton.isHidden = false
 			cell.saveButton.isHidden = true
 		}

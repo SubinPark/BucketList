@@ -67,7 +67,7 @@ class DescriptionTableViewCell: UITableViewCell, UITextViewDelegate {
 	
 	@IBAction func saveButtonClicked(_ sender: Any) {
 		title.isUserInteractionEnabled = false
-		titleDescription.isUserInteractionEnabled = false
+		titleDescription.isEditable = false
 		saveButton.isHidden = true
 		editButton.isHidden = false
 		
@@ -83,7 +83,7 @@ class DescriptionTableViewCell: UITableViewCell, UITextViewDelegate {
 	
 	@IBAction func editButtonClicked(_ sender: Any) {
 		title.isUserInteractionEnabled = true
-		titleDescription.isUserInteractionEnabled = true
+		titleDescription.isEditable = true
 		editButton.isHidden = true
 		saveButton.isHidden = false
 	}
