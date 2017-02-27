@@ -18,10 +18,10 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	
 	var buckets: Results<BucketRealm> {
 		get {
-			return realm.objects(BucketRealm.self)
+			return realm.objects(BucketRealm.self).sorted(byKeyPath: "created", ascending: false)
 		}
 	}
-	
+
 	@IBOutlet weak var doneBucketTableView: UITableView!
 
 	override func viewDidLoad() {
@@ -59,8 +59,8 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
-		//cell.label.text = doneBuckets[indexPath.row].bucketTitle
 		cell.label.text = buckets[indexPath.row].bucketTitle
+		
 		return cell
 	}
 	
