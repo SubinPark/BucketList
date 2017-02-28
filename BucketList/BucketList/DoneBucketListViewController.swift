@@ -11,7 +11,6 @@ import RealmSwift
 
 class DoneBucketListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	var doneBuckets: [Bucket] = []
-	var details: [Bucket] = []
 	var tableViewType: Enums.TableViewType = .DoneList
 	
 	let realm = try! Realm()
@@ -36,9 +35,6 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(DoneBucketListViewController.addBucket))
 
 		doneBucketTableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
-		
-		//Fake data setup
-		details.append(Bucket.init(title: "Detail", detail: "Let's!"))
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

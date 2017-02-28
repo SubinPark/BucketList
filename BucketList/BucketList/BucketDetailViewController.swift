@@ -87,6 +87,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func addDetail() {
 		allDetails.append(BucketDetail(title: "", description: "", isNew: true))
+		// TODO: In order to add detail on top, adding the below line. However there's a weird behavior, not being able to edit and etc.
+		//allDetails.insert(BucketDetail(title: "", description: "", isNew: true), at: 0)
 		tableView.reloadData()
 	}
 	
