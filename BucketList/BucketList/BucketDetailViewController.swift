@@ -65,6 +65,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		if let isNew = cell.cellData?.detailIsNew, isNew == true {
 			cell.editButton.isHidden = true
 			cell.saveButton.isHidden = false
+			cell.title.isUserInteractionEnabled = true
+			cell.titleDescription.isEditable = true
 		} else {
 			cell.title.isUserInteractionEnabled = false
 			cell.titleDescription.isUserInteractionEnabled = true
@@ -86,9 +88,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	}
 	
 	func addDetail() {
-		allDetails.append(BucketDetail(title: "", description: "", isNew: true))
-		// TODO: In order to add detail on top, adding the below line. However there's a weird behavior, not being able to edit and etc.
-		//allDetails.insert(BucketDetail(title: "", description: "", isNew: true), at: 0)
+		allDetails.insert(BucketDetail(title: "", description: "", isNew: true), at: 0)
 		tableView.reloadData()
 	}
 	
@@ -96,7 +96,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		let detailToAdd = BucketDetailsRealm(id: bucketDetail.detailID, title: bucketDetail.detailTitle, description: bucketDetail.detailDescription)
 		
 		try! realm.write {
-			detailedBucket?.details.append(detailToAdd)
+			detailedBucket?.details.insert(detailToAdd, at: 0)
 		}
 	}
 	
