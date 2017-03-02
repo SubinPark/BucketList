@@ -15,6 +15,7 @@ class DescriptionTableViewCell: UITableViewCell, UITextViewDelegate {
 	@IBOutlet weak var titleDescription: UITextView!
 	@IBOutlet weak var saveButton: UIButton!
 	@IBOutlet weak var editButton: UIButton!
+	@IBOutlet weak var deleteButton: UIButton!
 	
 	var delegate: BucketDetailViewController?
 	var cellData: BucketDetail?
@@ -88,4 +89,14 @@ class DescriptionTableViewCell: UITableViewCell, UITextViewDelegate {
 		saveButton.isHidden = false
 	}
 	
+	@IBAction func deleteButtonClicked(_ sender: Any) {
+		let alert = UIAlertController(title: "Are you sure?", message: "This will delete the detail.", preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+		})
+		alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
+			// TODO: delete this detail from realm and cached array
+		})
+
+		delegate?.present(alert, animated: true, completion: nil)
+	}
 }

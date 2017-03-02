@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="254.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9XQ-gf-fg3">
@@ -49,11 +49,20 @@
                         </connections>
                     </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrq-bh-5GX">
-                        <rect key="frame" x="327" y="27" width="21" height="20"/>
+                        <rect key="frame" x="292" y="27" width="21" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Button" image="editIcon.png"/>
                         <connections>
                             <action selector="editButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xJB-nZ-mft"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZP-hc-16J">
+                        <rect key="frame" x="327" y="27" width="21" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Trash" image="trashIcon.png"/>
+                        <connections>
+                            <action selector="deleteButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uf0-Gb-KdH"/>
+                            <action selector="editButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nAK-ST-qIC"/>
                         </connections>
                     </button>
                 </subviews>
@@ -73,6 +82,7 @@
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="cardView" destination="9XQ-gf-fg3" id="WrF-lv-yXF"/>
+                <outlet property="deleteButton" destination="xZP-hc-16J" id="Hdp-zZ-deO"/>
                 <outlet property="editButton" destination="hrq-bh-5GX" id="J5Z-uQ-E1O"/>
                 <outlet property="saveButton" destination="oLZ-DV-XlN" id="JcZ-Of-m0x"/>
                 <outlet property="title" destination="Vpf-1Z-WpL" id="tYu-Br-QU5"/>
@@ -83,5 +93,6 @@
     </objects>
     <resources>
         <image name="editIcon.png" width="60" height="60"/>
+        <image name="trashIcon.png" width="128" height="128"/>
     </resources>
 </document>

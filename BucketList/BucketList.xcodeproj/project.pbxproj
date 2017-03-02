@@ -20,6 +20,7 @@
 		E71A9C3A1E1A3C3500D5BED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71A9C381E1A3C3500D5BED4 /* LaunchScreen.storyboard */; };
 		E71A9C451E1A3C3500D5BED4 /* BucketListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71A9C441E1A3C3500D5BED4 /* BucketListTests.swift */; };
 		E73D82271E39844600F47533 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D82261E39844600F47533 /* Enums.swift */; };
+		E77FBE771E67F91800F5C819 /* trashIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E77FBE761E67F91800F5C819 /* trashIcon.png */; };
 		E7845FF21E276D8F0064E499 /* NewBucketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7845FF01E276D8F0064E499 /* NewBucketTableViewCell.swift */; };
 		E7845FF31E276D8F0064E499 /* NewBucketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */; };
 		E78A7ECD1E41C796000AF53A /* BucketRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A7ECC1E41C796000AF53A /* BucketRealm.swift */; };
@@ -66,6 +67,7 @@
 		E71A9C441E1A3C3500D5BED4 /* BucketListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTests.swift; sourceTree = "<group>"; };
 		E71A9C461E1A3C3500D5BED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73D82261E39844600F47533 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		E77FBE761E67F91800F5C819 /* trashIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trashIcon.png; sourceTree = "<group>"; };
 		E7845FF01E276D8F0064E499 /* NewBucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBucketTableViewCell.swift; sourceTree = "<group>"; };
 		E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBucketTableViewCell.xib; sourceTree = "<group>"; };
 		E78A7ECC1E41C796000AF53A /* BucketRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketRealm.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		E79EBE231E35EF3900302E8B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E77FBE761E67F91800F5C819 /* trashIcon.png */,
 				E79EBE2C1E35F16800302E8B /* editIcon.png */,
 			);
 			name = Assets;
@@ -329,6 +332,7 @@
 				E71A9C351E1A3C3500D5BED4 /* Main.storyboard in Resources */,
 				E79EBE2D1E35F16800302E8B /* editIcon.png in Resources */,
 				E79501151E2E0426005AB2FA /* BucketDetailViewController.xib in Resources */,
+				E77FBE771E67F91800F5C819 /* trashIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
