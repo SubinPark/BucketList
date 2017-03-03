@@ -62,7 +62,6 @@
                         <state key="normal" title="Trash" image="trashIcon.png"/>
                         <connections>
                             <action selector="deleteButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uf0-Gb-KdH"/>
-                            <action selector="editButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nAK-ST-qIC"/>
                         </connections>
                     </button>
                 </subviews>
