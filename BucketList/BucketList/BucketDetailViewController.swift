@@ -108,4 +108,24 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 			bucketDetailRealm?.detailDescription = cellData.detailDescription
 		}
 	}
+	
+	//TODO: Improve this method
+	func deleteBucketDetail(cellData: BucketDetail) {
+		var counter = 0
+		for detail in allDetails {
+			if detail.detailID == cellData.detailID {
+				allDetails.remove(at: counter)
+				break
+			}
+			counter += 1
+		}
+		
+		if let bucketDetailRealm = realm.object(ofType: BucketDetailsRealm.self, forPrimaryKey: cellData.detailID) {
+			try! realm.write {
+				realm.delete(bucketDetailRealm)
+			}
+		}
+		
+		tableView.reloadData()
+	}
 }

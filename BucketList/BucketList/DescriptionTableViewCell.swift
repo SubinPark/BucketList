@@ -95,6 +95,10 @@ class DescriptionTableViewCell: UITableViewCell, UITextViewDelegate {
 		})
 		alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
 			// TODO: delete this detail from realm and cached array
+			guard let data = self.cellData else {
+				return
+			}
+			self.delegate?.deleteBucketDetail(cellData: data)
 		})
 
 		delegate?.present(alert, animated: true, completion: nil)
