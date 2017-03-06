@@ -109,7 +109,6 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		}
 	}
 	
-	//TODO: Improve this method
 	func deleteBucketDetail(cellData: BucketDetail) {
 		var counter = 0
 		for detail in allDetails {

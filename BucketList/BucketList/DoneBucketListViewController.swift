@@ -68,22 +68,21 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		
-		//let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell
-		
-		/* Experiment: Animation when clicking the card to the navigation bar
-		UIView.animate(withDuration: 0.8) {
-			cell?.center.y -= 300
-			self.navigationController?.navigationBar.barTintColor = UIColor.white
-			
-			self.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
-			self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
-			
-			self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
-		} */
-		
-		// Commenting out until full Realm implementation
-		let controller = BucketDetailViewController(bucket: buckets[indexPath.row])
-		self.navigationController?.pushViewController(controller, animated: true)
+		if let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell {
+			//Experiment: Animation when clicking the card to the navigation bar
+			UIView.animate(withDuration: 0.8) {
+				cell.center.y -= 300
+				//self.navigationController?.navigationBar.barTintColor = UIColor.white
+				
+				//self.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
+				//self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
+				
+				//self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
+			}
+		}
+
+		//let controller = BucketDetailViewController(bucket: buckets[indexPath.row])
+		//self.navigationController?.pushViewController(controller, animated: true)
 	}
 	
 	// MARK: Bucket Methods
