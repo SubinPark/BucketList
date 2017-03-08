@@ -71,8 +71,8 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		if let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell {
 			//Experiment: Animation when clicking the card to the navigation bar
 			UIView.animate(withDuration: 0.8) {
-				cell.center.y -= 300
-				self.navigationController?.navigationBar.barTintColor = UIColor.white
+				//cell.center.y -= 300
+				//self.navigationController?.navigationBar.barTintColor = UIColor.white
 				
 				//self.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
 				//self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
