@@ -81,8 +81,8 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 			}
 		}
 
-		//let controller = BucketDetailViewController(bucket: buckets[indexPath.row])
-		//self.navigationController?.pushViewController(controller, animated: true)
+		let controller = BucketDetailViewController(bucket: buckets[indexPath.row])
+		self.navigationController?.pushViewController(controller, animated: true)
 	}
 	
 	// MARK: Bucket Methods
