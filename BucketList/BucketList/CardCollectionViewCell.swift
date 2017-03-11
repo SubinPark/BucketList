@@ -45,8 +45,8 @@ class CardCollectionViewCell: UICollectionViewCell {
 		self.cardContentView = view;
 		*/
 		
-		let view = UIView.init()
-		self.contentView.addSubview(view)
+		//let view = UIView.init()
+		//self.contentView.addSubview(view)
 	}
 	
 }
