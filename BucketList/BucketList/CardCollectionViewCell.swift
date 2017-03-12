@@ -11,6 +11,7 @@ import UIKit
 class CardCollectionViewCell: UICollectionViewCell {
 	
 	override init(frame: CGRect) {
+		super.init(frame: frame)
 		setup()
 	}
 	
@@ -45,8 +46,10 @@ class CardCollectionViewCell: UICollectionViewCell {
 		self.cardContentView = view;
 		*/
 		
-		//let view = UIView.init()
-		//self.contentView.addSubview(view)
+		let view = UIView.init()
+		view.backgroundColor = UIColor.lightGray
+		
+		self.contentView.addSubview(view)
 	}
 	
 }
