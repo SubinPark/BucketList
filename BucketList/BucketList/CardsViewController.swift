@@ -17,6 +17,8 @@ class CardsViewController: UIViewController, UICollectionViewDataSource, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
+
         // Do any additional setup after loading the view.
     }
 
@@ -31,6 +33,13 @@ class CardsViewController: UIViewController, UICollectionViewDataSource, UIColle
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		//TODO: Create a collection view cell that will contain UIViewController. Or transferring controller to the cell container.
+		if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell {
+			cell.transferFromViewController(controller: cards[indexPath.row])
+			//Any protocol for UIViewController cards?
+			
+			return cell
+		}
+		
 		return UICollectionViewCell()
 	}
     

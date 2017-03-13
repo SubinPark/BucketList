@@ -19,7 +19,7 @@ class CardCollectionViewCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func setup() {
+	private func setup() {
 		/*
 		UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
 		view.backgroundColor = [MMUserInterfaceConstants cardBackgroundColor];
@@ -50,6 +50,10 @@ class CardCollectionViewCell: UICollectionViewCell {
 		view.backgroundColor = UIColor.lightGray
 		
 		self.contentView.addSubview(view)
+	}
+	
+	func transferFromViewController(controller: UIViewController) {
+		
 	}
 	
 }
