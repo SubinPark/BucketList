@@ -31,4 +31,9 @@ final class BucketRealm: Object {
 		bucketTitle = title
 		bucketDescription = description
 	}
+	
+	convenience init(title: String) {
+		self.init()
+		bucketTitle = title
+	}
 }

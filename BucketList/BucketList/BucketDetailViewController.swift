@@ -35,7 +35,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		tableView.dataSource = self
 		tableView.delegate = self
 		
-		self.navigationItem.title = detailedBucket?.bucketTitle
+		self.navigationItem.title = "Titleeeeeee" //detailedBucket?.bucketTitle
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(BucketDetailViewController.addDetail))
 		
 		tableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)

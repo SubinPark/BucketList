@@ -10,6 +10,9 @@ import UIKit
 import RealmSwift
 
 class DoneBucketListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+	let colors : [UIColor] = [UIColor.Sky, UIColor.Flower, UIColor.Dust, UIColor.Sand]
+	
+	
 	var doneBuckets: [Bucket] = []
 	var tableViewType: Enums.TableViewType = .DoneList
 	
@@ -31,10 +34,10 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
 		
-		self.navigationItem.title = "Done"
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(DoneBucketListViewController.addBucket))
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icn_nav_add"), style: .plain, target: self, action: #selector(DoneBucketListViewController.addBucket))
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "icn_nav_settings"), style: .plain, target: nil, action: nil)
 
-		doneBucketTableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
+		doneBucketTableView.backgroundColor = UIColor.white
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -43,19 +46,18 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 	
 	// MARK: UITableViewDataSource
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		//return doneBuckets.count
 		return buckets.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
-		cell.label.text = buckets[indexPath.row].bucketTitle
+		cell.titleLabel.text = buckets[indexPath.row].bucketTitle
+		cell.backgroundColor = colors[(indexPath.row % 4)]
 		
 		return cell
 	}

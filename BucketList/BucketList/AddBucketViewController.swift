@@ -10,10 +10,10 @@ import UIKit
 import RealmSwift
 
 class AddBucketViewController: UIViewController, UITextViewDelegate {
-	@IBOutlet weak var scrollView: UIScrollView!
-	@IBOutlet weak var bucketName: UITextView!
-	@IBOutlet weak var bucketDescription: UITextView!
-	@IBOutlet weak var addButton: UIButton!
+	@IBOutlet weak var topView: UIView!
+	@IBOutlet weak var bottomView: UIView!
+	@IBOutlet weak var titleTextView: UITextView!
+	@IBOutlet weak var characterLimitLabel: UILabel!
 	
 	var bucketListDelegate: UIViewController?
 	
@@ -24,27 +24,59 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 		hideKeyboardWhenTappedAround()
     }
 	
+	override func viewDidAppear(_ animated: Bool) {
+		titleTextView.becomeFirstResponder()
+	}
+	
 	func UISetup() {
-		bucketName.delegate = self
-		bucketName.text = "What do you want to accomplish?"
-		bucketName.textColor = UIColor.lightGray
-		
-		bucketDescription.delegate = self
-		bucketDescription.text = "Let's get specific."
-		bucketDescription.textColor = UIColor.lightGray
+		titleTextView.text = ""
+		topView.backgroundColor = UIColor.Sky
+		bottomView.backgroundColor = UIColor.Sky
 	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+//	
+//	@IBAction func addButtonDidClicked(_ sender: Any) {
+//
+//	}
+//	
+//	func textViewDidBeginEditing(_ textView: UITextView) {
+//		scrollView.setContentOffset(CGPoint.init(x: 0, y: (textView.frame.origin.y - CGFloat.init(30))), animated: true)
+//		if textView.textColor == UIColor.lightGray {
+//			switch textView {
+//			case bucketName:
+//				bucketName.text = nil
+//				bucketName.textColor = UIColor.black
+//			case bucketDescription:
+//				bucketDescription.text = nil
+//				bucketDescription.textColor = UIColor.black
+//			default: break
+//			}
+//		}
+//	}
+//	
+//	func textViewDidEndEditing(_ textView: UITextView) {
+//		scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+//		if textView.text.isEmpty {
+//			switch textView {
+//			case bucketName:
+//				bucketName.text = "What do you want to accomplish?"
+//				bucketName.textColor = UIColor.lightGray
+//			case bucketDescription:
+//				bucketDescription.text = "Let's get specific."
+//				bucketDescription.textColor = UIColor.lightGray
+//			default: break
+//			}
+//		}
+//	}
 	
-	@IBAction func addButtonDidClicked(_ sender: Any) {
-		let listController = bucketListDelegate as? DoneBucketListViewController
-		//listController?.doneBuckets.append(Bucket(title: bucketName.text, detail: bucketDescription.text))
+	@IBAction func confirmAction(_ sender: Any) {
 		bucketListDelegate?.dismiss(animated: true, completion: nil)
 		
-		let bucketToAdd = BucketRealm.init(title: bucketName.text, description: bucketDescription.text)
+		let bucketToAdd = BucketRealm.init(title: titleTextView.text)
 		
 		let realm = try! Realm()
 		try! realm.write {
@@ -52,44 +84,9 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 		}
 	}
 	
-	func textViewDidBeginEditing(_ textView: UITextView) {
-		scrollView.setContentOffset(CGPoint.init(x: 0, y: (textView.frame.origin.y - CGFloat.init(30))), animated: true)
-		if textView.textColor == UIColor.lightGray {
-			switch textView {
-			case bucketName:
-				bucketName.text = nil
-				bucketName.textColor = UIColor.black
-			case bucketDescription:
-				bucketDescription.text = nil
-				bucketDescription.textColor = UIColor.black
-			default: break
-			}
-		}
+	
+	@IBAction func deleteAction(_ sender: Any) {
 	}
 	
-	func textViewDidEndEditing(_ textView: UITextView) {
-		scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
-		if textView.text.isEmpty {
-			switch textView {
-			case bucketName:
-				bucketName.text = "What do you want to accomplish?"
-				bucketName.textColor = UIColor.lightGray
-			case bucketDescription:
-				bucketDescription.text = "Let's get specific."
-				bucketDescription.textColor = UIColor.lightGray
-			default: break
-			}
-		}
-	}
 	
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

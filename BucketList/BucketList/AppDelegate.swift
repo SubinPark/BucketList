@@ -17,10 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		let viewController = DoneBucketListViewController()
 		let navigationController = UINavigationController(rootViewController: viewController)
-		navigationController.navigationBar.barTintColor = UIColor(colorLiteralRed: 114 / 255, green: 192 / 255, blue: 246 / 255, alpha: 1)
+		navigationController.navigationBar.barTintColor = UIColor.white
+		navigationController.navigationBar.tintColor = UIColor.black
 		navigationController.navigationBar.isTranslucent = false
-		navigationController.navigationBar.tintColor = UIColor.white
-		navigationController.navigationBar.barStyle = UIBarStyle.blackOpaque
+		
+		navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+		navigationController.navigationBar.shadowImage = UIImage()
 		
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		self.window?.rootViewController = navigationController
