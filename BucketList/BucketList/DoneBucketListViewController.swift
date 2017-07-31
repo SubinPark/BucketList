@@ -57,6 +57,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell", for: indexPath) as! BucketTableViewCell
 		cell.titleLabel.text = buckets[indexPath.row].bucketTitle
+		cell.dateLabel.text = buckets[indexPath.row].created.toStringWeeddayMonthDay()
 		cell.backgroundColor = colors[(indexPath.row % 4)]
 		
 		return cell
@@ -70,7 +71,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		
-		if let cell = tableView.cellForRow(at: indexPath) as? BucketTableViewCell {
+		if let _ = tableView.cellForRow(at: indexPath) as? BucketTableViewCell {
 			//Experiment: Animation when clicking the card to the navigation bar
 			UIView.animate(withDuration: 0.8) {
 				//cell.center.y -= 300

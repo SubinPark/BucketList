@@ -21,6 +21,7 @@
 		E748B5361F0C9D3E006C18AC /* BucketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E748B5341F0C9D3E006C18AC /* BucketTableViewCell.swift */; };
 		E748B5371F0C9D3E006C18AC /* BucketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E748B5351F0C9D3E006C18AC /* BucketTableViewCell.xib */; };
 		E748B5391F0CAB22006C18AC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E748B5381F0CAB22006C18AC /* UIColor.swift */; };
+		E778107D1F2D7A1C00A851A0 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778107C1F2D7A1C00A851A0 /* NSDateExtension.swift */; };
 		E77FBE771E67F91800F5C819 /* trashIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E77FBE761E67F91800F5C819 /* trashIcon.png */; };
 		E7845FF21E276D8F0064E499 /* NewBucketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7845FF01E276D8F0064E499 /* NewBucketTableViewCell.swift */; };
 		E7845FF31E276D8F0064E499 /* NewBucketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */; };
@@ -72,6 +73,7 @@
 		E748B5341F0C9D3E006C18AC /* BucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTableViewCell.swift; sourceTree = "<group>"; };
 		E748B5351F0C9D3E006C18AC /* BucketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BucketTableViewCell.xib; sourceTree = "<group>"; };
 		E748B5381F0CAB22006C18AC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E778107C1F2D7A1C00A851A0 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		E77FBE761E67F91800F5C819 /* trashIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trashIcon.png; sourceTree = "<group>"; };
 		E7845FF01E276D8F0064E499 /* NewBucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBucketTableViewCell.swift; sourceTree = "<group>"; };
 		E7845FF11E276D8F0064E499 /* NewBucketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBucketTableViewCell.xib; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				E7C1BFB91E30504000FB8EFE /* UIViewControllerExtension.swift */,
 				E748B5381F0CAB22006C18AC /* UIColor.swift */,
+				E778107C1F2D7A1C00A851A0 /* NSDateExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				E71A9C321E1A3C3500D5BED4 /* DoneBucketListViewController.swift in Sources */,
 				E7F81DC71E6FDE5D00A859FB /* CardsViewController.swift in Sources */,
 				E795010A1E282DFA005AB2FA /* AddBucketViewController.swift in Sources */,
+				E778107D1F2D7A1C00A851A0 /* NSDateExtension.swift in Sources */,
 				E79501101E2BE4D8005AB2FA /* DescriptionTableViewCell.swift in Sources */,
 				E79501141E2E0426005AB2FA /* BucketDetailViewController.swift in Sources */,
 				E78A7ECD1E41C796000AF53A /* BucketRealm.swift in Sources */,

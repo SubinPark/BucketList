@@ -10,15 +10,18 @@ import UIKit
 import RealmSwift
 
 class AddBucketViewController: UIViewController, UITextViewDelegate {
-	@IBOutlet weak var topView: UIView!
-	@IBOutlet weak var bottomView: UIView!
+	
+	@IBOutlet weak var cardView: UIView!
 	@IBOutlet weak var titleTextView: UITextView!
 	@IBOutlet weak var characterLimitLabel: UILabel!
 	
 	var bucketListDelegate: UIViewController?
+	var characterLimit = 100
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		titleTextView.delegate = self
 		
 		UISetup()
 		hideKeyboardWhenTappedAround()
@@ -28,16 +31,30 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 		titleTextView.becomeFirstResponder()
 	}
 	
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+	
 	func UISetup() {
 		titleTextView.text = ""
-		topView.backgroundColor = UIColor.Sky
-		bottomView.backgroundColor = UIColor.Sky
+		cardView.backgroundColor = UIColor.Sky
 	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+		let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+		let numberOfChars = newText.characters.count // for Swift use count(newText)
+		return numberOfChars <= characterLimit;
+	}
+	
+	func textViewDidChange(_ textView: UITextView) {
+		characterLimitLabel.text = String(characterLimit - titleTextView.text.characters.count)
+	}
+	
 //	
 //	@IBAction func addButtonDidClicked(_ sender: Any) {
 //
@@ -86,6 +103,7 @@ class AddBucketViewController: UIViewController, UITextViewDelegate {
 	
 	
 	@IBAction func deleteAction(_ sender: Any) {
+		bucketListDelegate?.dismiss(animated: true, completion: nil)
 	}
 	
 	
