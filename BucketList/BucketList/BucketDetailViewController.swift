@@ -35,10 +35,10 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		tableView.dataSource = self
 		tableView.delegate = self
 		
-		self.navigationItem.title = "Titleeeeeee" //detailedBucket?.bucketTitle
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(BucketDetailViewController.addDetail))
-		
-		tableView.backgroundColor = UIColor(colorLiteralRed: 240 / 255.0, green: 240 / 255.0, blue: 240 / 255.0, alpha: 1)
+		self.navigationItem.title = ""
+		self.navigationItem.rightBarButtonItem = nil
+		self.navigationController?.navigationBar.topItem?.title = ""
+		//self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(BucketDetailViewController.addDetail))
 		
 		//Transferring Realm objects to Swift objects
 		if let realmDetails = detailedBucket?.details {
@@ -46,6 +46,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 				allDetails.append(BucketDetail(id: detail.detailID, title: detail.detailTitle, description: detail.detailDescription, isNew: false))
 			}
 		}
+		
+		setToolBar()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,33 +55,66 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
         // Dispose of any resources that can be recreated.
     }
 	
+	func setToolBar() {
+		navigationController?.isToolbarHidden = false
+		navigationController?.toolbar.layer.borderWidth = 1
+		navigationController?.toolbar.layer.borderColor = UIColor.white.cgColor
+		navigationController?.toolbar.barStyle = .blackTranslucent
+		navigationController?.toolbar.barTintColor = UIColor.white
+		navigationController?.toolbar.tintColor = UIColor.Grey1
+		
+		let space = UIBarButtonItem(title: "      ", style: .plain, target: nil, action: nil) // Find a more elegant way?
+		let image = UIBarButtonItem(image: UIImage.init(named: "icn_toolbar_image"), style: .plain, target: self, action: #selector(imageToolbarTapped))
+		let text = UIBarButtonItem(image: UIImage.init(named: "icn_toolbar_text"), style: .plain, target: nil, action: nil)
+		let location = UIBarButtonItem(image: UIImage.init(named: "icn_toolbar_location"), style: .plain, target: nil, action: nil)
+		
+		setToolbarItems([image, space, text, space, location], animated: true)
+	}
+	
+	func imageToolbarTapped() {
+		let alert = UIAlertController(title: "Choose", message: nil, preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { (action) in
+			
+		}))
+		
+		alert.addAction(UIAlertAction(title: "Choose from library", style: .default, handler: { (action) in
+			
+		}))
+		
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+		self.present(alert, animated: true, completion: nil)
+	}
+	
 	// MARK: UITableViewDataSource
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-		cell.cellData = allDetails[indexPath.row]
-		cell.dataSetup()
-		cell.delegate = self
-		cell.row = indexPath.row
+//		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
+//		cell.cellData = allDetails[indexPath.row]
+//		cell.dataSetup()
+//		cell.delegate = self
+//		cell.row = indexPath.row
+//		
+//		if let isNew = cell.cellData?.detailIsNew, isNew == true {
+//			cell.editButton.isHidden = true
+//			cell.saveButton.isHidden = false
+//			cell.title.isUserInteractionEnabled = true
+//			cell.titleDescription.isEditable = true
+//		} else {
+//			cell.title.isUserInteractionEnabled = false
+//			cell.titleDescription.isUserInteractionEnabled = true
+//			cell.titleDescription.isEditable = false
+//			cell.editButton.isHidden = false
+//			cell.saveButton.isHidden = true
+//		}
+//		
+//		return cell
 		
-		if let isNew = cell.cellData?.detailIsNew, isNew == true {
-			cell.editButton.isHidden = true
-			cell.saveButton.isHidden = false
-			cell.title.isUserInteractionEnabled = true
-			cell.titleDescription.isEditable = true
-		} else {
-			cell.title.isUserInteractionEnabled = false
-			cell.titleDescription.isUserInteractionEnabled = true
-			cell.titleDescription.isEditable = false
-			cell.editButton.isHidden = false
-			cell.saveButton.isHidden = true
-		}
-		
-		return cell
+		return UITableViewCell()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return allDetails.count
+		//return allDetails.count
+		return 20
 	}
 	
 	// MARK: UITableViewDelegate
