@@ -9,11 +9,12 @@
 import UIKit
 import RealmSwift
 
-class BucketDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BucketDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate {
 	@IBOutlet weak var tableView: UITableView!
 
 	var detailedBucket: BucketRealm?
 	var allDetails = [BucketDetail]()
+	var color = UIColor.Sky
 	
 	let realm = try! Realm()
 	
@@ -31,15 +32,14 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		tableView.register(UINib.init(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCell")
+		tableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
 		tableView.dataSource = self
 		tableView.delegate = self
 		
 		self.navigationItem.title = ""
 		self.navigationItem.rightBarButtonItem = nil
 		self.navigationController?.navigationBar.topItem?.title = ""
-		//self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(BucketDetailViewController.addDetail))
-		
+
 		//Transferring Realm objects to Swift objects
 		if let realmDetails = detailedBucket?.details {
 			for detail in realmDetails {
@@ -48,12 +48,23 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		}
 		
 		setToolBar()
+		setBackgroundColor()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func setBackgroundColor() {
+		var frame = self.tableView.bounds
+		frame.origin.y = -frame.size.height
+		frame.size.height = frame.size.height
+		frame.size.width = view.frame.size.width
+		let backgroundView = UIView(frame: frame)
+		backgroundView.backgroundColor = color
+		self.tableView.addSubview(backgroundView)
+	}
 	
 	func setToolBar() {
 		navigationController?.isToolbarHidden = false
@@ -73,12 +84,24 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func imageToolbarTapped() {
 		let alert = UIAlertController(title: "Choose", message: nil, preferredStyle: .actionSheet)
-		alert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { (action) in
-			
+		alert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { [weak self] (action) in
+			if UIImagePickerController.isSourceTypeAvailable(.camera) {
+				let imgPickerController = UIImagePickerController()
+				imgPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+				imgPickerController.sourceType = .camera
+				imgPickerController.allowsEditing = false
+				self?.present(imgPickerController, animated: true, completion: nil)
+			}
 		}))
 		
-		alert.addAction(UIAlertAction(title: "Choose from library", style: .default, handler: { (action) in
-			
+		alert.addAction(UIAlertAction(title: "Choose from library", style: .default, handler: { [weak self] (action) in
+			if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+				let imgPickerController = UIImagePickerController()
+				imgPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+				imgPickerController.sourceType = .photoLibrary
+				imgPickerController.allowsEditing = false
+				self?.present(imgPickerController, animated: true, completion: nil)
+			}
 		}))
 		
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -88,38 +111,26 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	// MARK: UITableViewDataSource
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell") as! DescriptionTableViewCell
-//		cell.cellData = allDetails[indexPath.row]
-//		cell.dataSetup()
-//		cell.delegate = self
-//		cell.row = indexPath.row
-//		
-//		if let isNew = cell.cellData?.detailIsNew, isNew == true {
-//			cell.editButton.isHidden = true
-//			cell.saveButton.isHidden = false
-//			cell.title.isUserInteractionEnabled = true
-//			cell.titleDescription.isEditable = true
-//		} else {
-//			cell.title.isUserInteractionEnabled = false
-//			cell.titleDescription.isUserInteractionEnabled = true
-//			cell.titleDescription.isEditable = false
-//			cell.editButton.isHidden = false
-//			cell.saveButton.isHidden = true
-//		}
-//		
-//		return cell
-		
-		return UITableViewCell()
+		switch indexPath.row {
+		case 0:
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: "BucketTableViewCell") as? BucketTableViewCell else { return UITableViewCell() }
+			
+			cell.titleLabel.text = detailedBucket?.bucketTitle
+			cell.dateLabel.text = detailedBucket?.created.toStringWeeddayMonthDay()
+			cell.backgroundColor = color
+			return cell
+		default:
+			return UITableViewCell()
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		//return allDetails.count
-		return 20
+		return allDetails.count + 1
 	}
 	
 	// MARK: UITableViewDelegate
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 255
+		return 200
 	}
 	
 	func addDetail() {

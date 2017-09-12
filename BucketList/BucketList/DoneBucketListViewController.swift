@@ -30,7 +30,6 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		self.doneBucketTableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
-		self.doneBucketTableView.register(UINib.init(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCell")
 		self.doneBucketTableView.dataSource = self
 		self.doneBucketTableView.delegate = self
 		
@@ -73,6 +72,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 		tableView.deselectRow(at: indexPath, animated: true)
 
 		let controller = BucketDetailViewController(bucket: buckets[indexPath.row])
+		controller.color = tableView.cellForRow(at: indexPath)?.backgroundColor ?? UIColor.Sky
 		self.navigationController?.pushViewController(controller, animated: true)
 		self.navigationController?.navigationBar.barTintColor = tableView.cellForRow(at: indexPath)?.backgroundColor
 	}
