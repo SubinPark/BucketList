@@ -9,14 +9,27 @@
 import UIKit
 import RealmSwift
 
-class BucketDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate {
+class BucketDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	@IBOutlet weak var tableView: UITableView!
 
 	var detailedBucket: BucketRealm?
-	var allDetails = [BucketDetail]()
+	var allDetails = [BucketDetail]() {
+		didSet {
+			tableView.reloadData()
+		}
+	}
 	var color = UIColor.Sky
 	
+	let imgPickerController = UIImagePickerController()
+	
 	let realm = try! Realm()
+	
+	enum DetailCellType {
+		case header
+		case photo
+		case location
+		case text
+	}
 	
 	//Initializer with bucket object
 	init(bucket: BucketRealm) {
@@ -49,6 +62,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		
 		setToolBar()
 		setBackgroundColor()
+		imgPickerController.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,21 +100,17 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		let alert = UIAlertController(title: "Choose", message: nil, preferredStyle: .actionSheet)
 		alert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { [weak self] (action) in
 			if UIImagePickerController.isSourceTypeAvailable(.camera) {
-				let imgPickerController = UIImagePickerController()
-				imgPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-				imgPickerController.sourceType = .camera
-				imgPickerController.allowsEditing = false
-				self?.present(imgPickerController, animated: true, completion: nil)
+				self?.imgPickerController.sourceType = .camera
+				self?.imgPickerController.allowsEditing = false
+				self?.present((self?.imgPickerController)!, animated: true, completion: nil)
 			}
 		}))
 		
 		alert.addAction(UIAlertAction(title: "Choose from library", style: .default, handler: { [weak self] (action) in
 			if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-				let imgPickerController = UIImagePickerController()
-				imgPickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-				imgPickerController.sourceType = .photoLibrary
-				imgPickerController.allowsEditing = false
-				self?.present(imgPickerController, animated: true, completion: nil)
+				self?.imgPickerController.sourceType = .photoLibrary
+				self?.imgPickerController.allowsEditing = false
+				self?.present((self?.imgPickerController)!, animated: true, completion: nil)
 			}
 		}))
 		
@@ -135,7 +145,6 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func addDetail() {
 		allDetails.insert(BucketDetail(title: "", description: "", isNew: true), at: 0)
-		tableView.reloadData()
 	}
 	
 	func saveBucketDetail(_ bucketDetail: BucketDetail) {
@@ -172,5 +181,16 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		}
 		
 		tableView.reloadData()
+	}
+	
+	// MARK: UIImagePickerControllerDelegate Methods
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+		if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+			addDetail()
+			//imageView.contentMode = .ScaleAspectFit
+			//imageView.image = pickedImage
+		}
+		
+		dismiss(animated: true, completion: nil)
 	}
 }
