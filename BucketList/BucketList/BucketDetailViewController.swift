@@ -13,7 +13,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	@IBOutlet weak var tableView: UITableView!
 
 	var detailedBucket: BucketRealm?
-	var allDetails = [BucketDetail]() {
+	var allDetails = List<BucketDetailsRealm>() {
 		didSet {
 			tableView.reloadData()
 		}
@@ -35,6 +35,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	init(bucket: BucketRealm) {
 		super.init(nibName: "BucketDetailViewController", bundle: nil)
 		detailedBucket = bucket
+		allDetails = bucket.details
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -43,23 +44,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-		tableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
-		tableView.dataSource = self
-		tableView.delegate = self
-		
-		self.navigationItem.title = ""
-		self.navigationItem.rightBarButtonItem = nil
-		self.navigationController?.navigationBar.topItem?.title = ""
-
-		//Transferring Realm objects to Swift objects
-		if let realmDetails = detailedBucket?.details {
-			for detail in realmDetails {
-				allDetails.append(BucketDetail(id: detail.detailID, title: detail.detailTitle, description: detail.detailDescription, isNew: false))
-			}
-		}
-		
+		setUpTableView()
+		setUpNavigation()		
 		setToolBar()
 		setBackgroundColor()
 		imgPickerController.delegate = self
@@ -69,6 +55,20 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	// MARK: View Set Up
+	
+	func setUpTableView() {
+		tableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
+		tableView.dataSource = self
+		tableView.delegate = self
+	}
+	
+	func setUpNavigation() {
+		self.navigationItem.title = ""
+		self.navigationItem.rightBarButtonItem = nil
+		self.navigationController?.navigationBar.topItem?.title = ""
+	}
 	
 	func setBackgroundColor() {
 		var frame = self.tableView.bounds
@@ -143,9 +143,9 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		return 200
 	}
 	
-	func addDetail() {
-		allDetails.insert(BucketDetail(title: "", description: "", isNew: true), at: 0)
-	}
+//	func addDetail() {
+//		allDetails.insert(BucketDetail(title: "", description: "", isNew: true), at: 0)
+//	}
 	
 	func saveBucketDetail(_ bucketDetail: BucketDetail) {
 		let detailToAdd = BucketDetailsRealm(id: bucketDetail.detailID, title: bucketDetail.detailTitle, description: bucketDetail.detailDescription)
@@ -186,7 +186,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	// MARK: UIImagePickerControllerDelegate Methods
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-			addDetail()
+			//addDetail()
 			//imageView.contentMode = .ScaleAspectFit
 			//imageView.image = pickedImage
 		}

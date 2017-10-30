@@ -9,22 +9,13 @@
 import Foundation
 import RealmSwift
 
-final class BucketList: Object {
-	dynamic var id = ""
-	let items = List<BucketRealm>()
-	
-	override static func primaryKey() -> String? {
-		return "id"
-	}
-}
-
 final class BucketRealm: Object {
 	dynamic var id = ""
 	dynamic var bucketTitle = ""
 	dynamic var bucketDescription = ""
 	dynamic var finished = false
 	dynamic var created = Date()
-	var details = List<BucketDetailsRealm>()
+	let details = List<BucketDetailsRealm>()
 	
 	convenience init(title: String, description: String) {
 		self.init()
