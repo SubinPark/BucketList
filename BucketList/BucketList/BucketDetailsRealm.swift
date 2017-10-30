@@ -10,10 +10,10 @@ import Foundation
 import RealmSwift
 
 final class BucketDetailsRealm: Object {
-	dynamic var detailID = 0
-	dynamic var detailTitle = ""
-	dynamic var detailDescription = ""
-	dynamic var created = NSDate()
+	@objc dynamic var detailID = 0
+	@objc dynamic var detailTitle = ""
+	@objc dynamic var detailDescription = ""
+	@objc dynamic var created = NSDate()
 	
 	convenience init(id: Int, title: String, description: String) {
 		self.init()

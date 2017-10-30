@@ -79,7 +79,7 @@ class DoneBucketListViewController: UIViewController, UITableViewDataSource, UIT
 	
 	// MARK: Bucket Methods
 	
-	func addBucket() {
+	@objc func addBucket() {
 		let controller = AddBucketViewController()
 		controller.bucketListDelegate = self
 		self.navigationController?.present(controller, animated: true, completion: nil)

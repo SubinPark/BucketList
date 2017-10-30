@@ -99,7 +99,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	}
 
 
-	func imageToolbarTapped() {
+	@objc func imageToolbarTapped() {
 		let alert = UIAlertController(title: "Choose", message: nil, preferredStyle: .actionSheet)
 		alert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { [weak self] (action) in
 			if UIImagePickerController.isSourceTypeAvailable(.camera) {
