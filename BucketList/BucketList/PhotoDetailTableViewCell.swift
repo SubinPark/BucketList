@@ -2,15 +2,17 @@
 //  PhotoDetailTableViewCell.swift
 //  BucketList
 //
-//  Created by Park, Subin on 9/11/17.
+//  Created by Park, Subin on 10/29/17.
 //  Copyright © 2017 subin. All rights reserved.
 //
 
 import UIKit
 
 class PhotoDetailTableViewCell: UITableViewCell {
-	//var imageView: UIImageView?
-	
+	@IBOutlet weak var mainImageView: UIImageView!
+	@IBOutlet weak var dot: UIImageView!
+	@IBOutlet weak var dateLabel: UILabel!
+	@IBOutlet weak var lineView: UIView!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +25,10 @@ class PhotoDetailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 	
-	func setup() {
-		
+	func setUpCellWith(image imageName: String, date: Date) {
+		mainImageView.image = UIImage(named: imageName)
+		dateLabel.text = date.toString(dateFormat: "MMM d")
+		dateLabel.textColor = UIColor.LabelGray
 	}
-
+    
 }

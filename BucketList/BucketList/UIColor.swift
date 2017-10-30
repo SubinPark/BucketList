@@ -22,6 +22,8 @@ extension UIColor {
 	static var Black : UIColor {get{return UIColor.colorFromHex(0x1C1C1C)}}
 	static var White : UIColor {get{return UIColor.colorFromHex(0xFFFFFF)}}
 	
+	static var LabelGray : UIColor {get {return UIColor.colorFromHex(0x9b9b9b)}}
+	
 	static func colorFromHex(_ rgbValue:UInt32)->UIColor{
 		let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
 		let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0

@@ -60,6 +60,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 	
 	func setUpTableView() {
 		tableView.register(UINib.init(nibName: "BucketTableViewCell", bundle: nil), forCellReuseIdentifier: "BucketTableViewCell")
+		tableView.register(UINib.init(nibName: "PhotoDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "PhotoDetailTableViewCell")
+		
 		tableView.dataSource = self
 		tableView.delegate = self
 	}
@@ -95,7 +97,8 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		
 		setToolbarItems([image, space, text, space, location], animated: true)
 	}
-	
+
+
 	func imageToolbarTapped() {
 		let alert = UIAlertController(title: "Choose", message: nil, preferredStyle: .actionSheet)
 		alert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { [weak self] (action) in
@@ -118,6 +121,7 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 		self.present(alert, animated: true, completion: nil)
 	}
 	
+	
 	// MARK: UITableViewDataSource
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -130,12 +134,14 @@ class BucketDetailViewController: UIViewController, UITableViewDataSource, UITab
 			cell.backgroundColor = color
 			return cell
 		default:
-			return UITableViewCell()
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoDetailTableViewCell") as? PhotoDetailTableViewCell else { return UITableViewCell() }
+			cell.setUpCellWith(image: "TestFood", date: Date())
+			return cell
 		}
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return allDetails.count + 1
+		return allDetails.count + 3 //TEST
 	}
 	
 	// MARK: UITableViewDelegate
